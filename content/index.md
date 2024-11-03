@@ -1,5 +1,5 @@
 ---
-title: Welcome to the Multiverse BAYBEEEEE
+title: Welcome to the Multiverse
 ---
 
 This is a blank Quartz installation.
