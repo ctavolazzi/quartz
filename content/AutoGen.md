@@ -8,14 +8,29 @@ tags:
 date: 2024-03-20
 ---
 
+<div class="video-container">
+  <h4>🎥 AutoGen Video Guide</h4>
+  <iframe 
+    width="100%" 
+    height="315" 
+    src="https://www.youtube.com/embed/mQ9bd98-scw" 
+    title="AutoGen Framework Overview" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+  <p class="video-description">Video overview of AutoGen's framework and capabilities.</p>
+  <p class="video-note">📝 <em>This guide provides a comprehensive overview of AutoGen's capabilities and use cases.</em></p>
+</div>
+
 <div class="audio-container">
-  <h4>🎧 AutoGen Audio Guide</h4>
+  <h4>🎧 AI-Generated Audio Summary</h4>
   <audio controls>
-    <source src="/static/AutoGen-LM-Studio.wav" type="audio/wav">
+    <source src="/static/output.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <p class="audio-description">Audio overview of AutoGen's framework and capabilities.</p>
-  <p class="audio-note">📝 <em>This audio guide was generated using AI tools (NotebookLM) synthesizing information from multiple sources, including official Microsoft documentation, research papers, and community resources. It provides a comprehensive overview of AutoGen's capabilities and use cases.</em></p>
+  <p class="audio-description">AI-generated audio overview of AutoGen.</p>
+  <p class="audio-note">📝 <em>This audio summary was generated using AI tools (NotebookLM) synthesizing information from multiple sources, including official Microsoft documentation, research papers, and community resources.</em></p>
 </div>
 
 # AutoGen: Microsoft's Multi-Agent LLM Framework
