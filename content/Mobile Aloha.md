@@ -1,5 +1,5 @@
 ---
-title: "Mobile ALOHA: Learning Bimanual Mobile Manipulation"
+title: Mobile ALOHA
 date: 2024-11-14
 lastmod: 2024-11-14
 type: research
@@ -12,11 +12,11 @@ links:
   - https://github.com/MarkFzp/mobile-aloha
   - https://github.com/MarkFzp/act-plus-plus
 related:
-  - [[ALOHA Project]]
-  - [[Imitation Learning]]
-  - [[Robot Manipulation]]
-  - [[Mobile Robotics]]
-  - [[Machine Learning Projects]]
+  - - - ALOHA Project
+  - - - Imitation Learning
+  - - - Robot Manipulation
+  - - - Mobile Robotics
+  - - - Machine Learning Projects
 tags:
   - robotics
   - machine-learning
@@ -28,7 +28,6 @@ aliases:
   - Mobile ALOHA
   - ALOHA Robot
 ---
-# Mobile ALOHA: Learning Bimanual Mobile Manipulation
 
 >[!note] Quick Overview
 >A groundbreaking project in mobile manipulation robotics that combines whole-body teleoperation with imitation learning to achieve complex bimanual tasks. Published on arXiv (cs.RO) on January 4, 2024.
