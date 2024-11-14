@@ -6,7 +6,6 @@ tags:
   - multiverse-school
   - welcome
 ---
-## Welcome 🪴
 You've found the knowledge garden of [[Christopher Tavolazzi]] and I hope you enjoy your stay 🥰
 
 This website is a living repository of ideas, insights, and information. This digital space is designed to help me nurture my thoughts, share what I learn, and collaborate with others. Feel free to explore, learn, and contribute!
