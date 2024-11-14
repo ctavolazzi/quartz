@@ -20,7 +20,7 @@ This website is a living repository of ideas, insights, and information. This di
 - [[Surviving the Singularity|Surviving the Singularity]] - Preparing for the AI future
 - [[NovaSystem|NovaSystem]] - Exploring multi-agent frameworks
 - [[intro-to-ai|Intro to AI]] - Comprehensive AI education
-- [[Mobile ALOHA]] - Bimanual mobile manipulation research
+- [[Mobile ALOHA|Mobile ALOHA]] - Bimanual mobile manipulation research
 
 ## Learning Paths 📚
 
