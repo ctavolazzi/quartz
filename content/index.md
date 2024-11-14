@@ -9,8 +9,6 @@ enableToc: true
 
 <div align="center">
 
-# Welcome to the Multiverse
-
 ```ascii
     _____
    /     \
