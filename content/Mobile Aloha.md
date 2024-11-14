@@ -138,6 +138,64 @@ Mobile ALOHA represents a convergence of multiple breakthrough technologies:
 | PyTorch | Deep learning framework | [Docs](https://pytorch.org/docs/stable/index.html) |
 | MuJoCo | Physics simulation | [Documentation](https://mujoco.org/) |
 
+
+# Hardware Architecture
+
+| Component | Description | Learn More |
+|-----------|-------------|------------|
+| **Robotic Arms** | | |
+| ViperX 300 Robot Arm 6DOF (×2) | High-precision manipulator with 6 degrees of freedom | [Product Info](https://www.trossenrobotics.com/viperx-300-robot-arm-6dof.aspx) |
+| WidowX 250 Robot Arm 6DOF (×2) | Compact manipulator for precise movements | [Product Info](https://www.trossenrobotics.com/widowx-250-robot-arm-6dof.aspx) |
+| **Mobile Base** | | |
+| AgileX Tracer | Robust mobile platform for dynamic navigation | [Platform Details](https://www.trossenrobotics.com/agilex-tracer-agv.aspx) |
+| Custom Odometry | Wheel tracking system for precise movement | [[Wheel Odometry Guide]] |
+| **Sensors** | | |
+| Logitech C922x Pro (×4) | High-quality cameras for visual feedback | [Camera Specs](https://www.logitech.com/en-us/products/webcams/c922-pro-stream-webcam.960-001087.html) |
+| **Compute** | | |
+| Lambda Labs Tensorbook | High-performance mobile workstation | [Specs](https://lambdalabs.com/deep-learning/laptops/tensorbook) |
+
+# Bill of Materials
+
+| Part                             | Quantity | Link                                                           | Price (per unit) |
+| -------------------------------- | -------- | -------------------------------------------------------------- | ---------------- |
+| **Robots**                       |          |                                                                |                  |
+| ViperX 300 Robot Arm 6DOF        | 2        | https://www.trossenrobotics.com/viperx-300-robot-arm-6dof.aspx | $6,129.95        |
+| WidowX 250 Robot Arm 6DOF        | 2        | https://www.trossenrobotics.com/widowx-250-robot-arm-6dof.aspx | $3,549.95        |
+| Tracer AGV                       | 1        | https://www.trossenrobotics.com/agilex-tracer-agv.aspx         | $6,999.95        |
+| Onboard Compute                  |          |                                                                |                  |
+| Lambda Labs Tensorbook           | 1        | https://lambdalabs.com/deep-learning/laptops/tensorbook        | $2,399.00        |
+| **Robot Frame**                  |          |                                                                |                  |
+| 4040 800mm x 8                   | 4        | https://a.co/d/2DOkaGT (2 pcs)                                 | $42.29           |
+| 4040 500mm x 6                   | 2        | https://a.co/d/8mc69EV (4 pcs)                                 | $58.99           |
+| ...                              | ...      | ...                                                            | ...              |
+| **Camera setup**                 |          |                                                                |                  |
+| Logitech C922x Pro Stream Webcam | 4        | https://a.co/d/hddyphF                                         | $98.35           |
+| **Power**                        |          |                                                                |                  |
+| Battery Pack                     | 1        | https://a.co/d/crLamne                                         | $699.00          |
+| 600W DC Supply                   | 1        | https://a.co/d/85xFKlC                                         | $59.00           |
+| ...                              | ...      | ...                                                            | ...              |
+| **Wheel Odometry**               |          |                                                                |                  |
+| DYNAMIXEL XL430-W250-T           | 2        | https://www.robotis.us/dynamixel-xl430-w250-t/                 | $49.90           |
+| U2D2                             | 1        | https://www.robotis.us/u2d2/                                   | $32.10           |
+| ...                              | ...      | ...                                                            | ...              |
+| **Misc**                         |          |                                                                |                  |
+| Rubber Band                      | 1        | https://a.co/d/1lpVha6                                         | $9.99            |
+| Gripping Tape                    | 1        | https://a.co/d/iuDVBf4                                         | $54.14           |
+
+# 3D Printed Parts
+- For leader and follower end-effectors, follow the original ALOHA tutorial: ALOHA 🏖️ Tutorial
+- For wheel odometry, below are the required parts (6 pieces in total):
+  - Wheel (2)
+  - Mount (2) 
+  - Housing (2)
+
+# Hardware Guide
+
+1. Install ALOHA end-effectors
+2. Build the robot frame
+3. Mount the robots and the cameras
+4. Cable connections
+5. Wheel Odometry
 ## Demonstrated Capabilities
 
 ### 1. Kitchen Tasks

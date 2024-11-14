@@ -1,115 +1,63 @@
 ---
-title: "Welcome to the Multiverse"
+title: Welcome 🪴
 tags:
   - index
   - ai-education
   - multiverse-school
-enableToc: true
+  - welcome
 ---
+## Welcome 🪴
+You've found the knowledge garden of [[Christopher Tavolazzi]] who hopes you enjoy your stay 🥰
 
-<div align="center">
+This website is a living repository of ideas, insights, and information. This digital space is designed to help me nurture my thoughts, share what I learn, and collaborate with others. Feel free to explore, learn, and contribute!
 
-```ascii
-    _____
-   /     \
-  | AI+U  |
-   \_____/
-  Education
- Reimagined
-```
+### How to Navigate 🧭
+- Use the **search bar** to find specific topics or keywords
+- Browse the **networked notes** to discover interconnected ideas
+- Follow **internal links** ([[like this]]) to explore related concepts
+- Click on **tags** to surface notes under a common theme
 
-*Your gateway to practical AI mastery*
-</div>
-
-## Quick Navigation 🧭
-- [[intro-to-ai|Intro to AI Course]] - Comprehensive AI education program
-- [[AI-Coffee|Morning Coffee Hour]] - Daily AI discussions and community
-- [[AutoGen|AI Agents & AutoGen]] - Advanced AI automation concepts
-
-## Featured Programs 🌟
-
-### [[intro-to-ai|The Multiverse School: Intro to AI]]
-Our flagship program offering practical AI education:
-- Weekly ($25) or Monthly ($60) access
-- Daily Morning Coffee Hour sessions
-- Structured 3-day intensive courses
-- Active community participation
-- Virtual campus access
-
-### [[AI-Coffee|Morning Coffee Hour]]
-Daily community discussions at 8:00 AM Pacific:
-- Industry insights
-- AI tool demonstrations
-- Networking opportunities
-- Knowledge sharing
-- Informal learning environment
-
-### [[AutoGen|AI Agents & Automation]]
-Explore advanced AI concepts:
-- Multi-agent systems
-- Workflow automation
-- Practical implementations
-- Future possibilities
+## Featured Notes 🌟
+- [[surviving-singularity|Surviving the Singularity]] - Preparing for the AI future
+- [[NovaSystem|NovaSystem]] - Exploring multi-agent frameworks
+- [[intro-to-ai|Intro to AI]] - Comprehensive AI education
+- [[Mobile ALOHA|Mobile ALOHA]] - Bimanual mobile manipulation research
 
 ## Learning Paths 📚
 
-> [!note] Choose Your Journey
-> 1. **Beginner Path**
+> [!note] Suggested Journeys
+> 1. **AI Fundamentals**
 >    - Start with [[intro-to-ai|Intro to AI]]
->    - Join [[AI-Coffee|Morning Coffee Hour]]
->    - Explore basic AI tools
+>    - Explore [[AI-Ethics|AI ethics considerations]]
+>    - Understand the [[Singularity|singularity concept]]
 > 
-> 2. **Advanced Path**
->    - Deep dive into [[AutoGen|AI Agents]]
->    - Contribute to community projects
->    - Participate in hackathons
+> 2. **Knowledge Management**
+>    - Learn the [[PKM|basics of PKM]]
+>    - See my [[OQ-Guide|Obsidian Quartz guide]]
+>    - Use the [[KG-Template|knowledge garden template]]
 
-## Community Benefits 🤝
-
-- Daily learning opportunities
-- Active discussion groups
-- Practical AI applications
-- Industry connections
-- Continuous support
-- Virtual campus access
-
-## Get Started 🎉
-
-Ready to begin your AI journey? Choose your path:
-
-1. [[intro-to-ai|Join our next cohort]] (November 11-13, 2024)
-2. [[AI-Coffee|Drop into Morning Coffee Hour]]
-3. [[AutoGen|Explore AI automation]]
-
-<div align="center">
-
-### Begin Your AI Journey
-
-[Join The Multiverse School](https://themultiverse.school)
-
-</div>
+## Contribution Guidelines 🤝
+This is an open digital garden, and I welcome contributions! If you have ideas to share or want to collaborate on a topic, feel free to submit a pull request on GitHub or reach out to me directly. Let's grow this garden together.
 
 ## Recent Updates 📣
 
 > [!example] Latest Additions
-> - New [[intro-to-ai|Intro to AI]] cohort dates
-> - Expanded [[AI-Coffee|Morning Coffee Hour]] topics
-> - Advanced [[AutoGen|automation guides]]
+> - New article on [[AGI-Milestones|AGI Development Milestones]]
+> - Expanded [[NovaSystem|NovaSystem documentation]]
+> - Added [[Anthropic|Anthropic]] to AI companies list
 
-## Related Topics 🔗
-- Artificial Intelligence
-- Machine Learning
-- Natural Language Processing
-- Computer Vision
-- AI Ethics
-- Future of Work
+## Connect With Me 🔗
+- [[AI-Coffee|Join my Morning Coffee Hour]]
+- Listen to my [[this-is-not-human|"This is not human" AI podcast]]
+- Enroll in [[intro-to-ai|The Multiverse School: Intro to AI]]
+- Learn more about [[thecoffeejesus|@thecoffeejesus]]
 
 ---
 
 <div align="center">
 
-*Part of The Multiverse School's AI Education Initiative*
+*This knowledge garden is an ever-evolving work in progress.*
 
-[Visit Website](https://themultiverse.school) | [Contact Us](mailto:liz@themultiverse.school)
+[GitHub Repo](https://github.com/ctavolazzi/quartz) | [Contact Me](https://solo.to/thecoffeejesus)
 
 </div>
