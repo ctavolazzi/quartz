@@ -10,26 +10,52 @@ You've found the knowledge garden of [[Christopher Tavolazzi]] and I hope you en
 
 This website is a living repository of ideas, insights, and information. This digital space is designed to help me nurture my thoughts, share what I learn, and collaborate with others. Feel free to explore, learn, and contribute!
 
-# DASHBOARD
-
 ## DAILY NOTE ⭐
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
-<!-- Inline JavaScript to update the Daily Note link -->
+## GREETING 🌅
+<p id="greeting-message">Hello!</p>
+
+## DAILY QUOTE 🌟
+<div id="daily-quote">Loading...</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var link = document.getElementById('daily-note-link');
-    if (link) {
+    // Daily Note Link
+    var dailyLink = document.getElementById('daily-note-link');
+    if (dailyLink) {
       var today = new Date();
       var yyyy = today.getFullYear();
-      var mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0
+      var mm = String(today.getMonth() + 1).padStart(2, '0');
       var dd = String(today.getDate()).padStart(2, '0');
-      var formattedDate = `${yyyy}-${mm}-${dd}`;
-
-      // Update the link's href to point to the current daily note
-      link.href = `/Daily-Notes/${formattedDate}/`;
-      link.innerText = `Daily Note for ${formattedDate}`; // Optional: update link text
+      dailyLink.href = `/${yyyy}-${mm}-${dd}/`;
     }
+
+    // Weekly Note Link
+    var weeklyLink = document.getElementById('weekly-note-link');
+    if (weeklyLink) {
+      var now = new Date();
+      var startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+      var yyyy = startOfWeek.getFullYear();
+      var mm = String(startOfWeek.getMonth() + 1).padStart(2, '0');
+      var dd = String(startOfWeek.getDate()).padStart(2, '0');
+      weeklyLink.href = `/weekly/${yyyy}-${mm}-${dd}/`;
+    }
+
+    // Greeting Message
+    var hour = now.getHours();
+    var greeting = (hour < 12) ? "Good Morning!" : (hour < 18) ? "Good Afternoon!" : "Good Evening!";
+    document.getElementById('greeting-message').innerText = greeting;
+
+    // Daily Quote
+    var quotes = [
+      "Stay curious, stay inspired!",
+      "Every day is a chance to learn something new.",
+      "Believe in your potential and keep growing.",
+      "Create with passion and purpose."
+    ];
+    var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('daily-quote').innerText = randomQuote;
   });
 </script>
 
