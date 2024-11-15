@@ -10,6 +10,14 @@ You've found the knowledge garden of [[Christopher Tavolazzi]] and I hope you en
 
 This website is a living repository of ideas, insights, and information. This digital space is designed to help me nurture my thoughts, share what I learn, and collaborate with others. Feel free to explore, learn, and contribute!
 
+Check out what I did today:
+```button 
+name DAILY NOTE 
+type command 
+action Daily notes: Open today's daily note 
+color yellow
+```
+
 ### How to Navigate 🧭
 - Use the **search bar** to find specific topics or keywords
 - Browse the **networked notes** to discover interconnected ideas
