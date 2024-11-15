@@ -15,31 +15,31 @@ This website is a living repository of ideas, insights, and information. This di
 
 <script>
   function updateDailyNoteLink() {
-    var link = document.getElementById('daily-note-link');
+    const link = document.getElementById('daily-note-link');
     if (link) {
-      var today = new Date();
-      var yyyy = today.getFullYear();
-      var mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0
-      var dd = String(today.getDate()).padStart(2, '0');
-      link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
-      link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`; // Optional: customize link text
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      link.href = `/${yyyy}-${mm}-${dd}/`;
+      link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`;
     }
   }
 
-  // Run when the DOM is fully loaded
-  document.addEventListener('DOMContentLoaded', updateDailyNoteLink);
-
-  // Run when navigating back (or forward) in history
-  window.addEventListener('popstate', updateDailyNoteLink);
-
-  // Run when page visibility changes
-  document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'visible') {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if the page was just revisited
+    if (sessionStorage.getItem('visited')) {
       updateDailyNoteLink();
     }
+    // Clear the marker so it’s fresh on the next load
+    sessionStorage.removeItem('visited');
+  });
+
+  // Set a marker when leaving the page
+  window.addEventListener('beforeunload', function() {
+    sessionStorage.setItem('visited', 'true');
   });
 </script>
-
 
 ### How to Navigate 🧭
 - Use the **search bar** to find specific topics or keywords
