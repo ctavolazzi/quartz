@@ -1,80 +1,68 @@
 ---
-title: Welcome 🪴
+title: Dashboard 🕹️
 tags:
   - index
-  - ai-education
-  - multiverse-school
-  - welcome
+  - dashboard
+  - test
+  - api-demo
 ---
-You've found the knowledge garden of [[Christopher Tavolazzi]] and I hope you enjoy your stay 🥰
+Welcome to the Dashboard! This page demonstrates dynamic functionality using inline JavaScript. Each time you visit, you’ll see a random Pokémon of the Day, and other dynamic content.
 
-This website is a living repository of ideas, insights, and information. This digital space is designed to help me nurture my thoughts, share what I learn, and collaborate with others. Feel free to explore, learn, and contribute!
+## Pokémon of the Day 🎲
+<div id="pokemon-info">Loading Pokémon...</div>
 
-## DAILY NOTE ⭐
-<a id="daily-note-link" href="#">Today’s Daily Note</a>
+## Weather 🌤️
+<p id="weather-info">Coming soon!</p>
+
+## Daily Quote 💬
+<div id="quote">"Believe you can and you're halfway there."</div>
+
+## Page Visits 🔢
+<p id="visit-count">You have visited this page 0 times.</p>
 
 <script>
-  // Set the daily note link directly without relying on events
+  // Pokémon of the Day - Calls the PokéAPI for a random Pokémon
   (function() {
-    const link = document.getElementById('daily-note-link');
-    if (link) {
-      const today = new Date();
-      const yyyy = today.getFullYear();
-      const mm = String(today.getMonth() + 1).padStart(2, '0');
-      const dd = String(today.getDate()).padStart(2, '0');
-      link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
-      link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`;
+    const pokemonInfo = document.getElementById('pokemon-info');
+    if (pokemonInfo) {
+      const randomId = Math.floor(Math.random() * 150) + 1; // Get a random Pokémon from 1 to 150
+      fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
+        .then(response => response.json())
+        .then(data => {
+          pokemonInfo.innerHTML = `
+            <strong>${data.name.toUpperCase()}</strong><br>
+            <img src="${data.sprites.front_default}" alt="${data.name}" /><br>
+            Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}
+          `;
+        })
+        .catch(error => {
+          pokemonInfo.innerText = 'Failed to load Pokémon. Please try again later.';
+          console.error('Error fetching Pokémon data:', error);
+        });
+    }
+  })();
+
+  // Daily Quote - Just for variety (this can be made dynamic later)
+  (function() {
+    const quotes = [
+      "Believe in yourself!",
+      "Every day is a new adventure.",
+      "Stay curious, stay inspired.",
+      "Create with passion and purpose.",
+      "Embrace challenges as learning opportunities."
+    ];
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('quote').innerText = randomQuote;
+  })();
+
+  // Page Visit Counter - Uses localStorage to track visits
+  (function() {
+    const visitCountEl = document.getElementById('visit-count');
+    if (visitCountEl) {
+      let visitCount = localStorage.getItem('visitCount') || 0;
+      visitCount++;
+      localStorage.setItem('visitCount', visitCount);
+      visitCountEl.innerText = `You have visited this page ${visitCount} times.`;
     }
   })();
 </script>
-
-### How to Navigate 🧭
-- Use the **search bar** to find specific topics or keywords
-- Browse the **networked notes** to discover interconnected ideas
-- Follow **internal links** ([[like this]]) to explore related concepts
-- Click on **tags** to surface notes under a common theme
-
-## Featured Notes 🌟
-- [[Surviving the Singularity|Surviving the Singularity]] - Preparing for the AI future
-- [[NovaSystem|NovaSystem]] - Exploring multi-agent frameworks
-- [[intro-to-ai|Intro to AI]] - Comprehensive AI education
-- [[Mobile-ALOHA|Mobile ALOHA]] - Bimanual mobile manipulation research
-
-## Learning Paths 📚
-
-> [!note] Suggested Journeys
-> 1. **AI Fundamentals**
->    - Start with [[intro-to-ai|Intro to AI]]
->    - Explore [[AI-Ethics|AI ethics considerations]]
->    - Understand the [[Singularity|singularity concept]]
->
-> 2. **Knowledge Management**
->    - Learn the [[PKM|basics of PKM]]
->    - See my [[OQ-Guide|Obsidian Quartz guide]]
->    - Use the [[KG-Template|knowledge garden template]]
-
-## Contribution Guidelines 🤝
-This is an open digital garden, and I welcome contributions! If you have ideas to share or want to collaborate on a topic, feel free to submit a pull request on GitHub or reach out to me directly. Let's grow this garden together.
-
-## Recent Updates 📣
-
-> [!example] Latest Additions
-> - New article on [[AGI-Milestones|AGI Development Milestones]]
-> - Expanded [[NovaSystem|NovaSystem documentation]]
-> - Added [[Anthropic|Anthropic]] to AI companies list
-
-## Connect With Me 🔗
-- [[AI-Coffee|Join my Morning Coffee Hour]]
-- Listen to my [[this-is-not-human|"This is not human" AI podcast]]
-- Enroll in [[intro-to-ai|The Multiverse School: Intro to AI]]
-- Learn more about [[thecoffeejesus|@thecoffeejesus]]
-
----
-
-<div align="center">
-
-*This knowledge garden is an ever-evolving work in progress.*
-
-[GitHub Repo](https://github.com/ctavolazzi/quartz) | [Contact Me](https://solo.to/thecoffeejesus)
-
-</div>
