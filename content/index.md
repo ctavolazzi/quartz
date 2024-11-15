@@ -21,7 +21,7 @@ This website is a living repository of ideas, insights, and information. This di
       var yyyy = today.getFullYear();
       var mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0
       var dd = String(today.getDate()).padStart(2, '0');
-      link.href = `/${yyyy}-${mm}-${dd}/`;
+      link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
       link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`; // Optional: customize link text
     }
   }
