@@ -5,10 +5,13 @@ tags:
   - dashboard
   - api-demo
 ---
-Welcome to the Dashboard! This is a simple demonstration of loading and rendering data dynamically on page load.
+Welcome to your Dashboard! This page dynamically loads data using inline JavaScript.
 
 ## Pokémon of the Day 🎲
 <div id="pokemon-info">Loading Pokémon...</div>
+
+## Daily Note 📅
+<a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
   // Load and display Pokémon data
@@ -19,15 +22,28 @@ Welcome to the Dashboard! This is a simple demonstration of loading and renderin
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Render the Pokémon details once data is fully loaded
+      // Render the Pokémon details in a clear format
       pokemonInfo.innerHTML = `
-        <strong>${data.name.toUpperCase()}</strong><br>
-        <img src="${data.sprites.front_default}" alt="${data.name}" /><br>
-        Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}
+        <h2>${data.name.toUpperCase()}</h2>
+        <img src="${data.sprites.front_default}" alt="${data.name}" style="width: 150px; height: auto;" />
+        <p><strong>Type:</strong> ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
       `;
     } catch (error) {
       pokemonInfo.innerText = 'Failed to load Pokémon. Please try again later.';
       console.error('Error fetching Pokémon data:', error);
+    }
+  })();
+
+  // Set Daily Note link to today's date
+  (function setDailyNoteLink() {
+    const link = document.getElementById('daily-note-link');
+    if (link) {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      link.href = `/Daily-Notes/${yyyy}-${mm}-${dd}`;
+      link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`;
     }
   })();
 </script>
@@ -35,5 +51,5 @@ Welcome to the Dashboard! This is a simple demonstration of loading and renderin
 ---
 
 <div align="center">
-*This page is a simple API demo with synchronous data loading.*
+*This dashboard is a simple demonstration of dynamic data loading and display.*
 </div>
