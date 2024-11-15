@@ -7,8 +7,6 @@ tags:
   - dev-log
 ---
 
-# Welcome to my Knowledge Garden 🌍
-
 <marquee style="
   color: #ffffff;
   font-size: 1.2em;
