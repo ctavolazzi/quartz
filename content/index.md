@@ -14,7 +14,7 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
-  // Load and display Pokémon data without using innerHTML for text
+  // Load and display Pokémon data without using innerHTML
   (async function loadPokemon() {
     const pokemonInfo = document.getElementById('pokemon-info');
     try {
@@ -22,7 +22,7 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Create elements to display Pokémon info
+      // Create elements directly to display Pokémon info
       const nameElement = document.createElement('h2');
       nameElement.textContent = data.name.toUpperCase();
 
@@ -33,17 +33,7 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
       imgElement.height = 150;
 
       const typeElement = document.createElement('p');
-
-      // Create the "Type:" label with bold text
-      const typeLabel = document.createElement('strong');
-      typeLabel.textContent = "Type: ";
-
-      // Add type names as text
-      const typeNames = document.createTextNode(data.types.map(typeInfo => typeInfo.type.name).join(', '));
-
-      // Append the label and types to the paragraph
-      typeElement.appendChild(typeLabel);
-      typeElement.appendChild(typeNames);
+      typeElement.innerHTML = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
 
       // Clear any existing content and append new elements
       pokemonInfo.innerHTML = '';  // Clear loading text
