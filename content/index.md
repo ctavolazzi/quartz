@@ -14,28 +14,39 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
-  // Static-friendly JavaScript for Pokémon data
+  // Load and display Pokémon data without using innerHTML
   (async function loadPokemon() {
     const pokemonInfo = document.getElementById('pokemon-info');
     try {
-      // Fetch a random Pokémon from PokéAPI
       const randomId = Math.floor(Math.random() * 150) + 1;
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Render Pokémon information statically after fetch
-      pokemonInfo.innerHTML = `
-        <h2>${data.name.toUpperCase()}</h2>
-        <img src="${data.sprites.front_default}" alt="${data.name}" width="150" height="150" />
-        <p><strong>Type:</strong> ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
-      `;
+      // Create elements directly to display Pokémon info
+      const nameElement = document.createElement('h2');
+      nameElement.textContent = data.name.toUpperCase();
+
+      const imgElement = document.createElement('img');
+      imgElement.src = data.sprites.front_default;
+      imgElement.alt = data.name;
+      imgElement.width = 150;
+      imgElement.height = 150;
+
+      const typeElement = document.createElement('p');
+      typeElement.innerHTML = `<strong>Type:</strong> ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
+
+      // Clear any existing content and append new elements
+      pokemonInfo.innerHTML = '';  // Clear loading text
+      pokemonInfo.appendChild(nameElement);
+      pokemonInfo.appendChild(imgElement);
+      pokemonInfo.appendChild(typeElement);
     } catch (error) {
-      pokemonInfo.innerHTML = '<p>Failed to load Pokémon. Please try again later.</p>';
+      pokemonInfo.textContent = 'Failed to load Pokémon. Please try again later.';
       console.error('Error fetching Pokémon data:', error);
     }
   })();
 
-  // Static Daily Note link generation
+  // Set Daily Note link to today's date
   (function setDailyNoteLink() {
     const link = document.getElementById('daily-note-link');
     if (link) {
