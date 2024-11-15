@@ -9,20 +9,21 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
 
 ## Pokémon of the Day 🎲
 <div id="pokemon-info">Loading Pokémon...</div>
+<button id="refresh-button">Get Another Pokémon</button>
 
 ## Daily Note 📅
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
-  // Load and display Pokémon data without using innerHTML
-  (async function loadPokemon() {
+  // Function to load and display Pokémon data without using innerHTML
+  async function loadPokemon() {
     const pokemonInfo = document.getElementById('pokemon-info');
     try {
       const randomId = Math.floor(Math.random() * 150) + 1;
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Create elements directly to display Pokémon info
+      // Create elements to display Pokémon info
       const nameElement = document.createElement('h2');
       nameElement.textContent = data.name.toUpperCase();
 
@@ -33,18 +34,33 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
       imgElement.height = 150;
 
       const typeElement = document.createElement('p');
-      typeElement.innerHTML = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
+      typeElement.textContent = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
+
+      const heightElement = document.createElement('p');
+      heightElement.textContent = `Height: ${data.height / 10} m`;  // Converted to meters
+
+      const weightElement = document.createElement('p');
+      weightElement.textContent = `Weight: ${data.weight / 10} kg`;  // Converted to kilograms
 
       // Clear any existing content and append new elements
       pokemonInfo.innerHTML = '';  // Clear loading text
       pokemonInfo.appendChild(nameElement);
       pokemonInfo.appendChild(imgElement);
       pokemonInfo.appendChild(typeElement);
+      pokemonInfo.appendChild(heightElement);
+      pokemonInfo.appendChild(weightElement);
+
     } catch (error) {
       pokemonInfo.textContent = 'Failed to load Pokémon. Please try again later.';
       console.error('Error fetching Pokémon data:', error);
     }
-  })();
+  }
+
+  // Initialize the first Pokémon on page load
+  loadPokemon();
+
+  // Add event listener to refresh button
+  document.getElementById('refresh-button').addEventListener('click', loadPokemon);
 
   // Set Daily Note link to today's date
   (function setDailyNoteLink() {
