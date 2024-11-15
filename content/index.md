@@ -31,7 +31,15 @@ This website is a living repository of ideas, insights, and information. This di
 
   // Run when navigating back (or forward) in history
   window.addEventListener('popstate', updateDailyNoteLink);
+
+  // Run when page visibility changes
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+      updateDailyNoteLink();
+    }
+  });
 </script>
+
 
 ### How to Navigate 🧭
 - Use the **search bar** to find specific topics or keywords
