@@ -13,22 +13,19 @@ This website is a living repository of ideas, insights, and information. This di
 ## DAILY NOTE ⭐
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
-# DASHBOARD
-
-## DAILY NOTE ⭐
-<a id="daily-note-link" href="#">Today’s Daily Note</a>
-
-## GREETING 🌅
-<p id="greeting-message">Hello!</p>
-
-## DAILY QUOTE 🌟
-<div id="daily-quote">Loading...</div>
-
-{{< rawhtml >}}
-<script src="/js/dynamic-test.js"></script>
-{{< /rawhtml >}}
-
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('daily-note-link');
+    if (link) {
+      var today = new Date();
+      var yyyy = today.getFullYear();
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0
+      var dd = String(today.getDate()).padStart(2, '0');
+      link.href = `/${yyyy}-${mm}-${dd}/`;
+      link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`; // Optional: customize link text
+    }
+  });
+</script>
 
 ### How to Navigate 🧭
 - Use the **search bar** to find specific topics or keywords
