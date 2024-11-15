@@ -11,20 +11,26 @@ You've found the knowledge garden of [[Christopher Tavolazzi]] and I hope you en
 This website is a living repository of ideas, insights, and information. This digital space is designed to help me nurture my thoughts, share what I learn, and collaborate with others. Feel free to explore, learn, and contribute!
 
 ## DAILY NOTE ⭐
-## <a id="daily-note-link" href="#">Today’s Daily Note</a>
+<a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  function updateDailyNoteLink() {
     var link = document.getElementById('daily-note-link');
     if (link) {
       var today = new Date();
       var yyyy = today.getFullYear();
       var mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0
       var dd = String(today.getDate()).padStart(2, '0');
-      link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
+      link.href = `/${yyyy}-${mm}-${dd}/`;
       link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`; // Optional: customize link text
     }
-  });
+  }
+
+  // Run when the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', updateDailyNoteLink);
+
+  // Run when navigating back (or forward) in history
+  window.addEventListener('popstate', updateDailyNoteLink);
 </script>
 
 ### How to Navigate 🧭
