@@ -20,12 +20,6 @@ tags:
   🤖 Welcome to my digital chaos! | 🎮 Yes, that Pokémon API really works | 🧠 I bullied an AI into helping me break this static site | 🌱 Growing digital gardens and chaos emeralds | 🚀 Where we're going, we don't need sanitization
 </marquee>
 
-Hey there! You've entered a space that's a bit different from your typical blog or portfolio. This is a **living knowledge garden**, a raw, evolving repository of my ideas, projects, and unfiltered thoughts. Here, I'm recording my journey day by day, so you'll see both the breakthroughs and the messy bits.
-
-## About This Garden 🌿
-
-In this digital space, I document my experiences, struggles, insights, and ambitions. This is **not polished, it's real**, and I hope it inspires you to dive into the depths of your own journey as well. As you explore, you'll get an unfiltered look at my day-to-day activities, especially in the fields of **AI, robotics, creative projects, and everything in between**.
-
 <a id="daily-note-link" href="#" style="
   display: inline-block;
   padding: 12px 24px;
@@ -43,6 +37,12 @@ In this digital space, I document my experiences, struggles, insights, and ambit
   Daily Note 🗓
 </a>
 
+Hey there! You've entered a space that's a bit different from your typical blog or portfolio. This is a **living knowledge garden**, a raw, evolving repository of my ideas, projects, and unfiltered thoughts. Here, I'm recording my journey day by day, so you'll see both the breakthroughs and the messy bits.
+
+## About This Garden 🌿
+
+In this digital space, I document my experiences, struggles, insights, and ambitions. This is **not polished, it's real**, and I hope it inspires you to dive into the depths of your own journey as well. As you explore, you'll get an unfiltered look at my day-to-day activities, especially in the fields of **AI, robotics, creative projects, and everything in between**.
+
 ## API Integration Demo 🔌
 
 This section demonstrates something interesting: real-time API calls in what's supposed to be a static environment. Through some creative problem-solving (and persistent debugging with Claude), we've managed to bypass Quartz's usual sanitization to enable dynamic content loading.
@@ -55,12 +55,6 @@ This section demonstrates something interesting: real-time API calls in what's s
     0% { left: -100%; }
     20% { left: 100%; }
     100% { left: 100%; }
-  }
-
-  @keyframes glow {
-    0% { box-shadow: 0 0 15px rgba(255,255,255,0.1); }
-    50% { box-shadow: 0 0 25px rgba(255,255,255,0.2); }
-    100% { box-shadow: 0 0 15px rgba(255,255,255,0.1); }
   }
 
   @keyframes float {
@@ -85,6 +79,7 @@ This section demonstrates something interesting: real-time API calls in what's s
     border: 2px solid rgba(255,255,255,0.3);
     position: relative;
     overflow: hidden;
+    animation: float 6s ease-in-out infinite;
   ">Loading Pokémon...</div>
 
   <button id="refresh-button" style="
@@ -97,13 +92,13 @@ This section demonstrates something interesting: real-time API calls in what's s
     border: 1px solid #ffffff;
     border-radius: 4px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
   ">
     Get Another Pokémon
   </button>
 </div>
 
 <script>
-  // Add type color mapping at the start of the script
   const typeColors = {
     normal: '#A8A878',
     fire: '#F08030',
@@ -132,36 +127,40 @@ This section demonstrates something interesting: real-time API calls in what's s
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Get primary type and its color
       const primaryType = data.types[0].type.name;
-      const typeColor = typeColors[primaryType] || '#71717A'; // Fallback color if type not found
+      const typeColor = typeColors[primaryType] || '#71717A';
 
-      // Create elements with type-based styling
+      // Update main card background with type color
+      pokemonInfo.style.background = `linear-gradient(145deg, ${typeColor}33 0%, ${typeColor}11 100%)`;
+      pokemonInfo.style.boxShadow = `0 4px 15px rgba(0,0,0,0.2), inset 0 0 30px ${typeColor}22`;
+      pokemonInfo.style.border = `2px solid ${typeColor}44`;
+
       const nameElement = document.createElement('h2');
       nameElement.textContent = data.name.toUpperCase();
       nameElement.style.margin = '0 0 15px 0';
       nameElement.style.fontSize = '1.5em';
       nameElement.style.fontWeight = 'bold';
       nameElement.style.letterSpacing = '0.05em';
-      nameElement.style.textShadow = `0 0 10px ${typeColor}33`; // Using hex alpha
+      nameElement.style.textShadow = `0 0 10px ${typeColor}88`;
+      nameElement.style.color = '#FFFFFF';
 
       const imageContainer = document.createElement('div');
-      imageContainer.style.background = `linear-gradient(145deg, ${typeColor}11, ${typeColor}22)`;
+      imageContainer.style.background = `linear-gradient(145deg, ${typeColor}22, ${typeColor}44)`;
       imageContainer.style.borderRadius = '10px';
       imageContainer.style.padding = '15px';
       imageContainer.style.margin = '0 -10px 15px -10px';
-      imageContainer.style.border = `1px solid ${typeColor}22`;
-      imageContainer.style.boxShadow = `inset 0 0 20px ${typeColor}11`;
+      imageContainer.style.border = `1px solid ${typeColor}66`;
+      imageContainer.style.boxShadow = `inset 0 0 20px ${typeColor}33`;
       imageContainer.style.position = 'relative';
+      imageContainer.style.backdropFilter = 'blur(5px)';
 
-      // Shine effect
       const shineElement = document.createElement('div');
       shineElement.style.position = 'absolute';
       shineElement.style.top = '0';
       shineElement.style.left = '-100%';
       shineElement.style.width = '50%';
       shineElement.style.height = '100%';
-      shineElement.style.background = 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)';
+      shineElement.style.background = `linear-gradient(90deg, transparent, ${typeColor}22, transparent)`;
       shineElement.style.animation = 'shine 3s infinite';
       imageContainer.appendChild(shineElement);
 
@@ -172,34 +171,35 @@ This section demonstrates something interesting: real-time API calls in what's s
       imgElement.height = 120;
       imgElement.style.display = 'block';
       imgElement.style.margin = '0 auto';
-      imgElement.style.filter = `drop-shadow(0 0 8px ${typeColor}33)`;
+      imgElement.style.filter = `drop-shadow(0 0 8px ${typeColor}77)`;
       imageContainer.appendChild(imgElement);
 
       const statsContainer = document.createElement('div');
-      statsContainer.style.background = `linear-gradient(135deg, ${typeColor}11, ${typeColor}22)`;
+      statsContainer.style.background = `linear-gradient(135deg, ${typeColor}22, ${typeColor}33)`;
       statsContainer.style.borderRadius = '8px';
       statsContainer.style.padding = '10px';
       statsContainer.style.marginTop = '10px';
-      statsContainer.style.border = `1px solid ${typeColor}22`;
-      statsContainer.style.boxShadow = `inset 0 0 15px ${typeColor}11`;
+      statsContainer.style.border = `1px solid ${typeColor}44`;
+      statsContainer.style.boxShadow = `inset 0 0 15px ${typeColor}22`;
 
       const typeElement = document.createElement('p');
       typeElement.textContent = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
       typeElement.style.margin = '5px 0';
       typeElement.style.fontWeight = 'bold';
-      typeElement.style.color = 'rgba(255,255,255,0.9)';
+      typeElement.style.color = `rgba(255,255,255,0.95)`;
+      typeElement.style.textShadow = `0 0 5px ${typeColor}88`;
 
       const heightElement = document.createElement('p');
       heightElement.textContent = `Height: ${data.height / 10} m`;
       heightElement.style.margin = '5px 0';
       heightElement.style.fontSize = '0.9em';
-      heightElement.style.color = 'rgba(255,255,255,0.8)';
+      heightElement.style.color = 'rgba(255,255,255,0.9)';
 
       const weightElement = document.createElement('p');
       weightElement.textContent = `Weight: ${data.weight / 10} kg`;
       weightElement.style.margin = '5px 0';
       weightElement.style.fontSize = '0.9em';
-      weightElement.style.color = 'rgba(255,255,255,0.8)';
+      weightElement.style.color = 'rgba(255,255,255,0.9)';
 
       // Clear and append elements
       pokemonInfo.innerHTML = '';
@@ -209,6 +209,20 @@ This section demonstrates something interesting: real-time API calls in what's s
       statsContainer.appendChild(heightElement);
       statsContainer.appendChild(weightElement);
       pokemonInfo.appendChild(statsContainer);
+
+      // Update button styling to match type
+      const button = document.getElementById('refresh-button');
+      button.style.borderColor = `${typeColor}88`;
+      button.style.textShadow = `0 0 5px ${typeColor}88`;
+      button.style.transition = 'all 0.2s ease-in-out';
+      button.onmouseover = () => {
+        button.style.background = `${typeColor}22`;
+        button.style.transform = 'translateY(-2px)';
+      };
+      button.onmouseout = () => {
+        button.style.background = 'none';
+        button.style.transform = 'translateY(0)';
+      };
 
     } catch (error) {
       pokemonInfo.textContent = 'Failed to load Pokémon. Please try again later.';
