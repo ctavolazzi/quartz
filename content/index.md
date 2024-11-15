@@ -5,17 +5,44 @@ tags:
   - dashboard
   - api-demo
 ---
-Welcome to your Dashboard! This page dynamically loads data using inline JavaScript.
+Welcome to your Knowledge Garden! This page dynamically loads data using inline JavaScript and serves as a resource for exploration by humans and, soon, AI agents.
 
-## Pokémon of the Day 🎲
-<div id="pokemon-info">Loading Pokémon...</div>
-<button id="refresh-button">Get Another Pokémon</button>
+<a id="daily-note-link" href="#" style="
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;  /* White text */
+  background: none;  /* Transparent background */
+  border: 1px solid #ffffff;  /* Thin white border */
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 30px;
+">
+  Daily Note 🗓
+</a>
 
-## Daily Note 📅
-<a id="daily-note-link" href="#">Today’s Daily Note</a>
+## Random Pokémon 🎲
+<div id="pokemon-info" style="margin-top: 20px;">Loading Pokémon...</div>
+<button id="refresh-button" style="
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #ffffff;
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+">
+  Get Another Pokémon
+</button>
 
 <script>
-  // Function to load and display Pokémon data without using innerHTML
+  // Load and display Pokémon data without using innerHTML
   async function loadPokemon() {
     const pokemonInfo = document.getElementById('pokemon-info');
     try {
@@ -71,7 +98,7 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
       const mm = String(today.getMonth() + 1).padStart(2, '0');
       const dd = String(today.getDate()).padStart(2, '0');
       link.href = `/Daily-Notes/${yyyy}-${mm}-${dd}`;
-      link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`;
+      link.innerText = `Daily Note 🗓`;
     }
   })();
 </script>
