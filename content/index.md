@@ -14,6 +14,7 @@ This website is a living repository of ideas, insights, and information. This di
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
+  // Function to update the Daily Note link
   function updateDailyNoteLink() {
     const link = document.getElementById('daily-note-link');
     if (link) {
@@ -26,19 +27,13 @@ This website is a living repository of ideas, insights, and information. This di
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Check if the page was just revisited
-    if (sessionStorage.getItem('visited')) {
-      updateDailyNoteLink();
-    }
-    // Clear the marker so it’s fresh on the next load
-    sessionStorage.removeItem('visited');
-  });
+  // Run update function on initial load
+  document.addEventListener('DOMContentLoaded', updateDailyNoteLink);
 
-  // Set a marker when leaving the page
-  window.addEventListener('beforeunload', function() {
-    sessionStorage.setItem('visited', 'true');
-  });
+  // Force a page reload if navigating back to this page
+  if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
+    location.reload();
+  }
 </script>
 
 ### How to Navigate 🧭
