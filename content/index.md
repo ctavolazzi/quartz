@@ -13,12 +13,18 @@ This website is a living repository of ideas, insights, and information. This di
 ## DAILY NOTE ⭐
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
+# DASHBOARD
+
+## DAILY NOTE ⭐
+<a id="daily-note-link" href="#">Today’s Daily Note</a>
+
 ## GREETING 🌅
 <p id="greeting-message">Hello!</p>
 
 ## DAILY QUOTE 🌟
 <div id="daily-quote">Loading...</div>
 
+{{< rawhtml >}}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Daily Note Link
@@ -28,36 +34,42 @@ This website is a living repository of ideas, insights, and information. This di
       var yyyy = today.getFullYear();
       var mm = String(today.getMonth() + 1).padStart(2, '0');
       var dd = String(today.getDate()).padStart(2, '0');
-      dailyLink.href = `/${yyyy}-${mm}-${dd}/`;
-    }
-
-    // Weekly Note Link
-    var weeklyLink = document.getElementById('weekly-note-link');
-    if (weeklyLink) {
-      var now = new Date();
-      var startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
-      var yyyy = startOfWeek.getFullYear();
-      var mm = String(startOfWeek.getMonth() + 1).padStart(2, '0');
-      var dd = String(startOfWeek.getDate()).padStart(2, '0');
-      weeklyLink.href = `/weekly/${yyyy}-${mm}-${dd}/`;
+      var formattedDate = yyyy + '-' + mm + '-' + dd;
+      dailyLink.href = '/' + formattedDate + '/';
     }
 
     // Greeting Message
-    var hour = now.getHours();
-    var greeting = (hour < 12) ? "Good Morning!" : (hour < 18) ? "Good Afternoon!" : "Good Evening!";
-    document.getElementById('greeting-message').innerText = greeting;
+    var greetingElement = document.getElementById('greeting-message');
+    if (greetingElement) {
+      var hour = new Date().getHours();
+      var greeting;
+      if (hour < 12) {
+        greeting = "Good morning! 🌞";
+      } else if (hour < 18) {
+        greeting = "Good afternoon! ☀️";
+      } else {
+        greeting = "Good evening! 🌜";
+      }
+      greetingElement.innerText = greeting;
+    }
 
     // Daily Quote
-    var quotes = [
-      "Stay curious, stay inspired!",
-      "Every day is a chance to learn something new.",
-      "Believe in your potential and keep growing.",
-      "Create with passion and purpose."
-    ];
-    var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById('daily-quote').innerText = randomQuote;
+    var quoteElement = document.getElementById('daily-quote');
+    if (quoteElement) {
+      var quotes = [
+        "Stay curious, stay inspired!",
+        "Every day is a chance to learn something new.",
+        "Believe in your potential and keep growing.",
+        "Create with passion and purpose."
+      ];
+      var randomIndex = Math.floor(Math.random() * quotes.length);
+      var randomQuote = quotes[randomIndex];
+      quoteElement.innerText = randomQuote;
+    }
   });
 </script>
+{{< /rawhtml >}}
+
 
 ### How to Navigate 🧭
 - Use the **search bar** to find specific topics or keywords
