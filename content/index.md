@@ -7,7 +7,7 @@ tags:
   - dev-log
 ---
 
-# Welcome to the Knowledge Garden of Christopher Tavolazzi 🌍
+# Welcome to my Knowledge Garden 🌍
 
 <marquee style="
   color: #ffffff;
@@ -103,6 +103,28 @@ This section demonstrates something interesting: real-time API calls in what's s
 </div>
 
 <script>
+  // Add type color mapping at the start of the script
+  const typeColors = {
+    normal: '#A8A878',
+    fire: '#F08030',
+    water: '#6890F0',
+    electric: '#F8D030',
+    grass: '#78C850',
+    ice: '#98D8D8',
+    fighting: '#C03028',
+    poison: '#A040A0',
+    ground: '#E0C068',
+    flying: '#A890F0',
+    psychic: '#F85888',
+    bug: '#A8B820',
+    rock: '#B8A038',
+    ghost: '#705898',
+    dragon: '#7038F8',
+    dark: '#705848',
+    steel: '#B8B8D0',
+    fairy: '#EE99AC'
+  };
+
   async function loadPokemon() {
     const pokemonInfo = document.getElementById('pokemon-info');
     try {
@@ -110,25 +132,29 @@ This section demonstrates something interesting: real-time API calls in what's s
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Create elements with enhanced Pokemon card styling
+      // Get primary type and its color
+      const primaryType = data.types[0].type.name;
+      const typeColor = typeColors[primaryType] || '#71717A'; // Fallback color if type not found
+
+      // Create elements with type-based styling
       const nameElement = document.createElement('h2');
       nameElement.textContent = data.name.toUpperCase();
       nameElement.style.margin = '0 0 15px 0';
       nameElement.style.fontSize = '1.5em';
       nameElement.style.fontWeight = 'bold';
       nameElement.style.letterSpacing = '0.05em';
-      nameElement.style.textShadow = '0 0 10px rgba(255,255,255,0.3)';
+      nameElement.style.textShadow = `0 0 10px ${typeColor}33`; // Using hex alpha
 
       const imageContainer = document.createElement('div');
-      imageContainer.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%)';
+      imageContainer.style.background = `linear-gradient(145deg, ${typeColor}11, ${typeColor}22)`;
       imageContainer.style.borderRadius = '10px';
       imageContainer.style.padding = '15px';
       imageContainer.style.margin = '0 -10px 15px -10px';
-      imageContainer.style.border = '1px solid rgba(255,255,255,0.2)';
-      imageContainer.style.boxShadow = 'inset 0 0 20px rgba(255,255,255,0.1)';
+      imageContainer.style.border = `1px solid ${typeColor}22`;
+      imageContainer.style.boxShadow = `inset 0 0 20px ${typeColor}11`;
       imageContainer.style.position = 'relative';
 
-      // Single shine effect
+      // Shine effect
       const shineElement = document.createElement('div');
       shineElement.style.position = 'absolute';
       shineElement.style.top = '0';
@@ -146,16 +172,16 @@ This section demonstrates something interesting: real-time API calls in what's s
       imgElement.height = 120;
       imgElement.style.display = 'block';
       imgElement.style.margin = '0 auto';
-      imgElement.style.filter = 'drop-shadow(0 0 8px rgba(255,255,255,0.2))';
+      imgElement.style.filter = `drop-shadow(0 0 8px ${typeColor}33)`;
       imageContainer.appendChild(imgElement);
 
       const statsContainer = document.createElement('div');
-      statsContainer.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)';
+      statsContainer.style.background = `linear-gradient(135deg, ${typeColor}11, ${typeColor}22)`;
       statsContainer.style.borderRadius = '8px';
       statsContainer.style.padding = '10px';
       statsContainer.style.marginTop = '10px';
-      statsContainer.style.border = '1px solid rgba(255,255,255,0.1)';
-      statsContainer.style.boxShadow = 'inset 0 0 15px rgba(255,255,255,0.05)';
+      statsContainer.style.border = `1px solid ${typeColor}22`;
+      statsContainer.style.boxShadow = `inset 0 0 15px ${typeColor}11`;
 
       const typeElement = document.createElement('p');
       typeElement.textContent = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
