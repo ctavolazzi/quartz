@@ -14,26 +14,18 @@ This website is a living repository of ideas, insights, and information. This di
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
-  // Function to update the Daily Note link
-  function updateDailyNoteLink() {
+  // Set the daily note link directly without relying on events
+  (function() {
     const link = document.getElementById('daily-note-link');
     if (link) {
       const today = new Date();
       const yyyy = today.getFullYear();
       const mm = String(today.getMonth() + 1).padStart(2, '0');
       const dd = String(today.getDate()).padStart(2, '0');
-      link.href = `/${yyyy}-${mm}-${dd}/`;
+      link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
       link.innerText = `Daily Note for ${yyyy}-${mm}-${dd}`;
     }
-  }
-
-  // Run update function on initial load
-  document.addEventListener('DOMContentLoaded', updateDailyNoteLink);
-
-  // Force a page reload if navigating back to this page
-  if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
-    location.reload();
-  }
+  })();
 </script>
 
 ### How to Navigate 🧭
