@@ -14,27 +14,28 @@ Welcome to your Dashboard! This page dynamically loads data using inline JavaScr
 <a id="daily-note-link" href="#">Today’s Daily Note</a>
 
 <script>
-  // Load and display Pokémon data
+  // Static-friendly JavaScript for Pokémon data
   (async function loadPokemon() {
     const pokemonInfo = document.getElementById('pokemon-info');
     try {
-      const randomId = Math.floor(Math.random() * 150) + 1; // Random Pokémon ID from 1 to 150
+      // Fetch a random Pokémon from PokéAPI
+      const randomId = Math.floor(Math.random() * 150) + 1;
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       const data = await response.json();
 
-      // Render the Pokémon details in a clear format
+      // Render Pokémon information statically after fetch
       pokemonInfo.innerHTML = `
         <h2>${data.name.toUpperCase()}</h2>
-        <img src="${data.sprites.front_default}" alt="${data.name}" style="width: 150px; height: auto;" />
+        <img src="${data.sprites.front_default}" alt="${data.name}" width="150" height="150" />
         <p><strong>Type:</strong> ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
       `;
     } catch (error) {
-      pokemonInfo.innerText = 'Failed to load Pokémon. Please try again later.';
+      pokemonInfo.innerHTML = '<p>Failed to load Pokémon. Please try again later.</p>';
       console.error('Error fetching Pokémon data:', error);
     }
   })();
 
-  // Set Daily Note link to today's date
+  // Static Daily Note link generation
   (function setDailyNoteLink() {
     const link = document.getElementById('daily-note-link');
     if (link) {
