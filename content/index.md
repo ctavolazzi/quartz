@@ -25,50 +25,9 @@ This website is a living repository of ideas, insights, and information. This di
 <div id="daily-quote">Loading...</div>
 
 {{< rawhtml >}}
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Daily Note Link
-    var dailyLink = document.getElementById('daily-note-link');
-    if (dailyLink) {
-      var today = new Date();
-      var yyyy = today.getFullYear();
-      var mm = String(today.getMonth() + 1).padStart(2, '0');
-      var dd = String(today.getDate()).padStart(2, '0');
-      var formattedDate = yyyy + '-' + mm + '-' + dd;
-      dailyLink.href = '/' + formattedDate + '/';
-    }
-
-    // Greeting Message
-    var greetingElement = document.getElementById('greeting-message');
-    if (greetingElement) {
-      var hour = new Date().getHours();
-      var greeting;
-      if (hour < 12) {
-        greeting = "Good morning! 🌞";
-      } else if (hour < 18) {
-        greeting = "Good afternoon! ☀️";
-      } else {
-        greeting = "Good evening! 🌜";
-      }
-      greetingElement.innerText = greeting;
-    }
-
-    // Daily Quote
-    var quoteElement = document.getElementById('daily-quote');
-    if (quoteElement) {
-      var quotes = [
-        "Stay curious, stay inspired!",
-        "Every day is a chance to learn something new.",
-        "Believe in your potential and keep growing.",
-        "Create with passion and purpose."
-      ];
-      var randomIndex = Math.floor(Math.random() * quotes.length);
-      var randomQuote = quotes[randomIndex];
-      quoteElement.innerText = randomQuote;
-    }
-  });
-</script>
+<script src="/js/dynamic-test.js"></script>
 {{< /rawhtml >}}
+
 
 
 ### How to Navigate 🧭
