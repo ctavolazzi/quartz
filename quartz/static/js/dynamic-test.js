@@ -1,22 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('JavaScript loaded and running');
 
-  // Update Daily Note Link
-  const dailyLink = document.getElementById('daily-note-link');
-  if (dailyLink) {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    dailyLink.href = `/${yyyy}-${mm}-${dd}/`;
-    console.log(`Daily Note Link set to: /${yyyy}-${mm}-${dd}/`);
-  } else {
-    console.warn('Daily Note link element not found');
-  }
-
   // Set Greeting Message
   const greetingElement = document.getElementById('greeting-message');
   if (greetingElement) {
+    console.log('Found greeting element');
     const hour = new Date().getHours();
     let greeting;
     if (hour < 12) {
@@ -35,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Display Random Quote
   const quoteElement = document.getElementById('daily-quote');
   if (quoteElement) {
+    console.log('Found quote element');
     const quotes = [
       "Stay curious, stay inspired!",
       "Every day is a chance to learn something new.",
