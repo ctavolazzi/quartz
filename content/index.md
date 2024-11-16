@@ -32,6 +32,8 @@ tags:
 ">
   Daily Note 🗓
 </a>
+For all files see below:
+[[TOC]]
 
 Hey there! You've entered a space that's a bit different from your typical blog or portfolio. This is a **living knowledge garden**, a raw, evolving repository of my ideas, projects, and unfiltered thoughts. Here, I'm recording my journey day by day, so you'll see both the breakthroughs and the messy bits.
 
