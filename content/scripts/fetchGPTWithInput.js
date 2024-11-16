@@ -134,11 +134,13 @@ Provide a brief, focused response using the formatting guidelines above.
 
 ${gptThought}
 
-\`\`\`stats
+\`\`\`
 📊 Token Usage:
 • Prompt: ${promptTokens}
 • Completion: ${completionTokens}
 • Total: ${totalTokens}
+User Input:
+• ${userInput}
 \`\`\`
 ---
 `;

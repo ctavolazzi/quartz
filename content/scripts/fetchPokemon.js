@@ -34,8 +34,7 @@ module.exports = async function (tp) {
     const sprite = pokemonData.sprites.front_default || '';
 
     // Step 5: Format the Pokémon data into Markdown
-    const pokemonInfo = `
-${name} (#${id})
+    const pokemonInfo = `${name} (#${id})
 
 ![${name} Sprite](${sprite})
 
