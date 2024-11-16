@@ -16,29 +16,30 @@ const CopyButton: QuartzComponent = () => {
         cursor: "pointer",
       }}
     >
-      📋 Copy Text
+      📤 Share
     </button>
   )
 }
 
 CopyButton.beforeDOMLoaded = `
-document.addEventListener('click', function(e) {
+document.addEventListener('click', async function(e) {
   if (e.target && e.target.matches('.copy-button')) {
-    console.log('Button clicked! Attempting to copy...')
+    console.log('Share button clicked!')
 
     const article = document.querySelector('article')
-    if (article && article.textContent) {
-      navigator.clipboard.writeText(article.textContent)
-        .then(() => {
-          console.log('Text copied!')
-          e.target.textContent = '✅ Copied!'
-          setTimeout(() => {
-            e.target.textContent = '📋 Copy Text'
-          }, 2000)
+    if (article && navigator.share) {
+      try {
+        await navigator.share({
+          title: document.title,
+          text: article.textContent,
+          url: window.location.href
         })
-        .catch(err => {
-          console.error('Failed to copy:', err)
-        })
+        console.log('Shared successfully!')
+      } catch(err) {
+        console.log('Share failed:', err)
+      }
+    } else {
+      console.log('Web Share not supported')
     }
   }
 })
