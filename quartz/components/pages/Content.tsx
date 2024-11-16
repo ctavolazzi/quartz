@@ -29,14 +29,21 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
         const article = document.querySelector('article')
         if (!article) return
 
-        // Clone article to remove the button itself
+        // Clone article to remove the button and scripts
         const contentClone = article.cloneNode(true)
-        const copyButton = contentClone.querySelector('#copy-page-content')
-        if (copyButton) copyButton.remove()
+
+        // Remove elements we don't want to copy
+        contentClone.querySelectorAll('script, #copy-page-content, .copy-button, style').forEach(el => el.remove())
 
         // Clean up the text
         const cleanText = contentClone.textContent
-          ?.replace(/\\n{3,}/g, '\\n\\n') // Remove excess newlines
+          ?.replace(/\\n{3,}/g, '\\n\\n')    // Remove excess newlines
+          .replace(/\\s{2,}/g, ' ')         // Remove excess spaces
+          .replace(/@keyframes.*?}/gs, '')  // Remove CSS keyframes
+          .replace(/\\{.*?\\}/gs, '')       // Remove CSS blocks
+          .replace(/Type:/, '\\n\\nType:')  // Add spacing around Pokemon info
+          .replace(/Height:/, '\\nHeight:')
+          .replace(/Weight:/, '\\nWeight:')
           .trim() || ''
 
         // Copy to clipboard
@@ -54,7 +61,7 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
             console.error('Error copying to clipboard:', err)
           })
       })
-    `}}/>
+    `}} />
     {content}
   </article>
 }
