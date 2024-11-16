@@ -35,7 +35,7 @@ module.exports = async function (tp) {
 
     // Step 5: Format the Pokémon data into Markdown
     const pokemonInfo = `
-## 🐾 **Today's Pokémon: ${name} (#${id})**
+${name} (#${id})
 
 ![${name} Sprite](${sprite})
 
