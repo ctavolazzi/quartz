@@ -1,4 +1,4 @@
-[[index|[[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]]]
+[[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]]]
 
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 > Week <% tp.date.now("ww") %> of <% tp.date.now("YYYY") %> • Q<% tp.date.now("Q") %>
@@ -87,6 +87,6 @@ try {
 
 ---
 
-#daily <% tp.date.now("dddd") %> week-<% tp.date.now("ww") %> q<% tp.date.now("Q") %> 
+#daily-note  <% tp.date.now("dddd") %> week-<% tp.date.now("ww") %> q<% tp.date.now("Q") %> 
 
 [[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
