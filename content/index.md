@@ -36,6 +36,11 @@ tags:
 See all files here:
 [[TOC]]
 
+# Work Efforts 🚧
+[[Work Efforts Management]]
+[[Work Effort Implementation Guidelines]]
+[[WE2024-1117-2430]]
+[[WE3333-1117-2024]]
 
 Hey there! You've entered a space that's a bit different from your typical blog or portfolio. This is a **living knowledge garden**, a raw, evolving repository of my ideas, projects, and unfiltered thoughts. Here, I'm recording my journey day by day, so you'll see both the breakthroughs and the messy bits.
 

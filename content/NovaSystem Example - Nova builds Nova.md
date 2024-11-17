@@ -576,7 +576,7 @@ We have successfully integrated the CAE's feedback into our documentation, enhan
 - [[Nova Process Overview]]
 - [[Work Efforts Management]]
 - [[Technical Documentation]]
-- [[Implementation Guidelines]]
+- [[Work Effort Implementation Guidelines]]
 
 ## Tags
 #nova-system #technical-requirements #system-design #documentation
@@ -656,7 +656,7 @@ We have further explored **WE2024-1117-2432**, expanding the documentation of th
 - [[Nova Process Overview]]
 - [[Work Efforts Management]]
 - [[Technical Documentation]]
-- [[Implementation Guidelines]]
+- [[Work Effort Implementation Guidelines]]
 
 ## Tags
 #nova-system #technical-requirements #system-design #documentation
@@ -709,7 +709,7 @@ We have conducted an in-depth exploration of the Nova Process functionality, add
 - [[Nova Process Overview]]
 - [[Work Efforts Management]]
 - [[Technical Documentation]]
-- [[Implementation Guidelines]]
+- [[Work Effort Implementation Guidelines]]
 
 ## Tags
 #nova-system #technical-requirements #system-design #documentation
