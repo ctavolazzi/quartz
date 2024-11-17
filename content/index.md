@@ -34,7 +34,7 @@ tags:
 </a>
 ## Table of Contents 📚
 See all files here:
-[[TOC]]
+# [[TOC]]
 
 # Work Efforts 🚧
 [[Work Efforts Management]]
