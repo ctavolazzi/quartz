@@ -12,6 +12,21 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
       marginBottom: "1rem",
       alignItems: "center"
     }}>
+      <a href='https://ko-fi.com/M4M31LDUM' target='_blank'>
+        <img
+          height='36'
+          style={{
+            border: 0,
+            height: '36px',
+            transition: 'transform 0.2s ease-in-out',
+            display: 'block'
+          }}
+          src='https://storage.ko-fi.com/cdn/kofi2.png?v=6'
+          alt='Buy Me a Coffee at ko-fi.com'
+          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        />
+      </a>
       <button
         id="copy-page-content"
         style={{
@@ -31,21 +46,6 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
       >
         📋 Copy Page
       </button>
-      <a href='https://ko-fi.com/M4M31LDUM' target='_blank'>
-        <img
-          height='36'
-          style={{
-            border: 0,
-            height: '36px',
-            transition: 'transform 0.2s ease-in-out',
-            display: 'block'
-          }}
-          src='https://storage.ko-fi.com/cdn/kofi2.png?v=6'
-          alt='Buy Me a Coffee at ko-fi.com'
-          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-        />
-      </a>
     </div>
     <script dangerouslySetInnerHTML={{__html: `
       document.getElementById('copy-page-content')?.addEventListener('click', () => {
