@@ -44,9 +44,6 @@ links:
 ">
   Daily Note 🗓
 </a>
-## Table of Contents 📚
-See all files here:
-# [[TOC]]
 
 ## Active Work Efforts 🚧
 
@@ -87,6 +84,10 @@ Hey there! You've entered a space that's a bit different from your typical blog 
 ## About This Garden 🌿
 
 In this digital space, I document my experiences, struggles, insights, and ambitions. This is **not polished, it's real**, and I hope it inspires you to dive into the depths of your own journey as well. As you explore, you'll get an unfiltered look at my day-to-day activities, especially in the fields of **AI, robotics, creative projects, and everything in between**.
+
+## Table of Contents 📚
+See all files here:
+# [[TOC]]
 
 ## API Integration Demo 🔌
 
