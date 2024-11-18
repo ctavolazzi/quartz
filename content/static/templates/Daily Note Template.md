@@ -1,3 +1,19 @@
+---
+title: "<% tp.date.now("MMMM D, YYYY") %> • Daily Note"
+date: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - daily-notes
+ai-news: "[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]"
+---
+
+<%*
+await tp.file.create_new(
+    tp.file.find_tfile("AI News Template"),
+    `AI News/AI-News-${tp.date.now("YYYY-MM-DD")}`,
+    false
+);
+-%>
+
 [[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]]]
 
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
@@ -6,7 +22,7 @@
 ## 📊 Day at a Glance
 - 🗓️ **Day:** <% tp.date.now("DDD") %> of <% tp.date.now("YYYY") %>
 - 📅 **Week:** <% tp.date.now("ww") %> of 52
-- 📊 **Quarter Progress:** <%* 
+- 📊 **Quarter Progress:** <%*
 try {
   const now = tp.date.now("DDD");
   const quarter = tp.date.now("Q");
@@ -87,6 +103,6 @@ try {
 
 ---
 
-#daily-note  <% tp.date.now("dddd") %> week-<% tp.date.now("ww") %> q<% tp.date.now("Q") %> 
+#daily-note  <% tp.date.now("dddd") %> week-<% tp.date.now("ww") %> q<% tp.date.now("Q") %>
 
 [[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
