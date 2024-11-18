@@ -1,6 +1,6 @@
 ---
-title: "<% tp.date.now("MMMM D, YYYY") %> • AI News"
-date: <% tp.date.now("YYYY-MM-DD") %>
+title: '<% tp.date.now("MMMM D, YYYY") %> • AI News'
+date: '<% tp.date.now("YYYY-MM-DD") %>'
 tags:
   - ai-news
   - daily-notes
