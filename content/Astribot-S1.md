@@ -135,13 +135,42 @@ FUCK YEAH I'M READY I'M GOATED THIS IS MY DASHBOARD THIS IS MY FINAL STAND
 ![[Screen Shot 2024-11-18 at 12.51.51 PM.png]]
 ---
 
-```button
-name The Coffee Jesus Home
-type link
-action https://thecoffeejesus.com
-color blue
-```
-^button-vlp8
+<a href="https://thecoffeejesus.com" style="
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #2563eb, #3b82f6, #60a5fa, #3b82f6);
+    background-size: 300% 300%;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    animation: gradientBG 3s ease infinite;"
+    onmouseover="
+        this.style.transform='translateY(-2px) scale(1.02)';
+        this.style.boxShadow='0 6px 8px -1px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.09)';
+        this.style.border='2px solid white';
+        this.innerHTML='☕ The Coffee Jesus Home ➔';"
+    onmouseout="
+        this.style.transform='translateY(0) scale(1)';
+        this.style.boxShadow='0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+        this.style.border='2px solid transparent';
+        this.innerHTML='The Coffee Jesus Home';">The Coffee Jesus Home</a>
+
+<style>
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
 
 
 ![DALL-E: Pineapple vs Robot 3](https://oaidalleapiprodscus.blob.core.windows.net/private/org-oQ7PsCLvXKZqJ9EPBbdC3Uzx/user-M0yqXcmWJUaDqX0aJ2P5Cvht/img-28qBUH0QONCHohjN0qhCYnlx.png?st=2024-11-18T19%3A59%3A58Z&se=2024-11-18T21%3A59%3A58Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-11-18T19%3A15%3A55Z&ske=2024-11-19T19%3A15%3A55Z&sks=b&skv=2024-08-04&sig=4Clm9VJ0nfIK3maDqQTJxWcKM8qG8SpDW71PkvBfWjE%3D)
