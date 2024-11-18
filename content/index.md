@@ -59,14 +59,14 @@ See all files here:
 ">
 
 ### Current Projects
-- [[WE2024-1117-2430]] - Nova System Implementation
-- [[WE3333-1117-2024]] - System Integration
+- 📁 [[WE2024-1117-2430]] - Nova System Implementation
+- 📁 [[WE3333-1117-2024]] - System Integration
 
 ### Process Documentation
-- [[Work Efforts Management|📋 Management Overview]]
-- [[Work Effort Implementation Guidelines|🔧 Implementation Guide]]
+- 📋 [[Work Efforts Management|Management Overview]]
+- 🔧 [[Work Effort Implementation Guidelines|Implementation Guide]]
 
-<a href="[[Work-Efforts/]]" style="
+<a href="work-efforts/" style="
   display: inline-block;
   padding: 8px 16px;
   margin-top: 10px;
@@ -77,7 +77,7 @@ See all files here:
   border-radius: 4px;
   text-decoration: none;
 ">
-  View All Work Efforts →
+  📁 View All Work Efforts →
 </a>
 
 </div>
@@ -172,16 +172,20 @@ This section demonstrates something interesting: real-time API calls in what's s
     window.dailyNoteLinkSet = false;
   }
 
-  // Add this check for Pokemon initialization
-  if (typeof window.pokemonInitialized === 'undefined') {
-    window.pokemonInitialized = false;
+  if (typeof window.pokemonSet === 'undefined') {
+    window.pokemonSet = false;
   }
 
-  // Then modify the initPokemon function
-  function initPokemon() {
-    // Only proceed if not already initialized
-    if (window.pokemonInitialized) return;
+  if (typeof window.linkIntervalId === 'undefined') {
+    window.linkIntervalId = null;
+  }
 
+  if (typeof window.pokemonIntervalId === 'undefined') {
+    window.pokemonIntervalId = null;
+  }
+
+  // Keep the rest of the code exactly as it was in the working version
+  function initPokemon() {
     async function loadPokemon() {
       const pokemonInfo = document.getElementById('pokemon-info');
       try {
@@ -300,8 +304,6 @@ This section demonstrates something interesting: real-time API calls in what's s
     if (refreshButton) {
       refreshButton.addEventListener('click', loadPokemon);
     }
-
-    window.pokemonInitialized = true;
   }
 
   // Initial call
@@ -316,7 +318,7 @@ This section demonstrates something interesting: real-time API calls in what's s
       const yyyy = today.getFullYear();
       const mm = String(today.getMonth() + 1).padStart(2, '0');
       const dd = String(today.getDate()).padStart(2, '0');
-      link.href = `/Daily-Notes/${yyyy}-${mm}-${dd}`;
+      link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
       link.innerText = `Daily Note 🗓`;
       window.dailyNoteLinkSet = true;
       console.log('Daily note link set successfully');
@@ -542,214 +544,65 @@ This section demonstrates something interesting: real-time API calls in what's s
 
 </div>
 
-## 📅 Recent Activity
+<div class="activity-container">
 
-<div style="
-  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px 0;
-  border: 1px solid rgba(255,255,255,0.2);
-  position: relative;
-">
-  <div style="
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 10px 0;
-  ">
-    <div style="
-      min-width: 200px;
-      padding: 15px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.2s ease-in-out;
-      &:hover {
-        transform: translateY(-2px);
-      }
-    ">
-      <small style="color: rgba(255,255,255,0.6);">Today</small>
-      <h4 style="margin: 5px 0;">🔄 System Update</h4>
-      <p style="font-size: 0.9em; margin: 5px 0;">Updated Nova implementation docs</p>
-      <div style="
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, #3498db, #2ecc71);
-        animation: fadeIn 0.3s ease-out;
-      "></div>
-    </div>
+# Recent Activity
 
-    <div style="
-      min-width: 200px;
-      padding: 15px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.2s ease-in-out;
-      &:hover {
-        transform: translateY(-2px);
-      }
-    ">
-      <small style="color: rgba(255,255,255,0.6);">Yesterday</small>
-      <h4 style="margin: 5px 0;">📝 New Document</h4>
-      <p style="font-size: 0.9em; margin: 5px 0;">Added technical specifications</p>
-      <div style="
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, #3498db, #2ecc71);
-        animation: fadeIn 0.3s ease-out;
-      "></div>
-    </div>
-  </div>
+## Just Now
+
+🚀 [[System Update]] yeah [[System Update]] Deployed new features to production including real-time notifications.
+
+👤 [[Alex K.]] · 📱 [[Mobile App]]
+
+## Yesterday 🔗
+
+✨ [[New Feature]] Implemented real-time collaboration features.
+
+👤 [[Sarah M.]] · 💫 [[Features]]
+
+## Work Efforts 📋
+
+📁 [[WE2024-1117-2430]] - Nova System Implementation
+
+📁 [[WE3333-1117-2024]] - System Integration
+
+### Process Documentation
+- 📋 [[Work Efforts Management|Management Overview]]
+- 🔧 [[Work Effort Implementation Guidelines|Implementation Guide]]
+
 </div>
 
-## 🌈 Feature Showcase
-
-<div style="
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 20px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-  border-radius: 20px;
+<style>
+.activity-container {
+  background: linear-gradient(180deg, rgba(30,30,35,0.5) 0%, rgba(20,20,25,0.3) 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem 0;
   border: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-  overflow: hidden;
-">
-  <!-- Floating Orbs in Background -->
-  <div style="
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle at center, rgba(125,125,255,0.1) 0%, rgba(125,125,255,0) 70%);
-    border-radius: 50%;
-    top: -75px;
-    left: -75px;
-    filter: blur(20px);
-  "></div>
-  <div style="
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle at center, rgba(255,125,125,0.1) 0%, rgba(255,125,125,0) 70%);
-    border-radius: 50%;
-    bottom: -100px;
-    right: -100px;
-    filter: blur(25px);
-  "></div>
+  backdrop-filter: blur(10px);
+}
 
-  <!-- Card 1: Floating Stats -->
-  <div style="
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    border-radius: 15px;
-    padding: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-  ">
-    <div style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, #3498db, #2ecc71);
-    "></div>
-    <h3 style="margin: 10px 0;">✨ Active Projects</h3>
-    <div style="
-      font-size: 3em;
-      font-weight: bold;
-      margin: 15px 0;
-      background: linear-gradient(45deg, #3498db, #2ecc71);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    ">42</div>
-    <div style="
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: rgba(255,255,255,0.6);
-    ">
-      <span style="color: #2ecc71;">↑</span> 12% from last week
-    </div>
-  </div>
+.activity-container h2 {
+  margin-top: 2rem;
+  font-size: 1.5em;
+  color: rgba(255,255,255,0.9);
+}
 
-  <!-- Card 2: Activity Stream -->
-  <div style="
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    border-radius: 15px;
-    padding: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-    overflow: hidden;
-  ">
-    <div style="
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2));
-    "></div>
-    <h3 style="margin: 10px 0;">🔥 Latest Updates</h3>
-    <div style="
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    ">
-      <div style="
-        padding: 10px;
-        background: rgba(255,255,255,0.03);
-        border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.05);
-        position: relative;
-        overflow: hidden;
-      ">
-        <div style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 2px;
-          height: 100%;
-          background: linear-gradient(180deg, #3498db, transparent);
-        "></div>
-        <small style="color: rgba(255,255,255,0.5);">Just now</small>
-        <p style="margin: 5px 0;">🚀 Deployed v2.0.1</p>
-      </div>
-      <div style="
-        padding: 10px;
-        background: rgba(255,255,255,0.03);
-        border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.05);
-        position: relative;
-        overflow: hidden;
-      ">
-        <div style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 2px;
-          height: 100%;
-          background: linear-gradient(180deg, #2ecc71, transparent);
-        "></div>
-        <small style="color: rgba(255,255,255,0.5);">2h ago</small>
-        <p style="margin: 5px 0;">📝 Updated documentation</p>
-      </div>
-    </div>
-  </div>
-</div>
+.activity-container p {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+
+.activity-container p:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+</style>
 
 ## 🎯 Progress Trackers
 

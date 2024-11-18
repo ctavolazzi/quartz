@@ -1,903 +1,623 @@
 ---
-title: "Work Efforts Management"
+title: "Work Effort Implementation Guidelines"
 created: 2024-11-17
-status: in-progress
-type: documentation
+status: active
+type: guidelines
 aliases:
-  - Work Effort System
-  - WE System
+  - Work Effort Usage Guide
+  - WE Guidelines
 tags:
+  - guidelines
   - work-effort
-  - system-design
-  - documentation
   - process
+  - documentation
 related:
+  - "[[Work Efforts Management]]"
   - "[[Technical Documentation]]"
-  - "[[Implementation Guidelines]]"
   - "[[Nova Process Overview]]"
 ---
 
-# Work Efforts Management
+# Work Effort Implementation Guidelines
 
 ## Overview
-The Work Efforts Management system provides a structured way to create, track, and manage work efforts within the Nova system. Each work effort has a unique identifier and follows a specific format for consistency and easy tracking.
+A work effort (WE) is our way of tracking significant pieces of work in the Nova system. Think of it like a project folder that contains all discussions, decisions, and documentation about a specific task or feature.
 
-### Example Work Effort
-[[WE3333-1117-2024]]
+### When to Create a Work Effort
+Create a work effort when you have:
+- A feature that will take more than a day to complete
+- Work that requires discussion or collaboration
+- A task that needs to be tracked and documented
+- Something that others might need to reference later
 
-## Quick Start
+### When NOT to Create a Work Effort
+Don't create a work effort for:
+- Quick fixes (under 1 hour)
+- Simple documentation updates
+- Questions that can be answered in a single chat
+- Personal tasks or notes
+
+### Example Scenarios
+✅ Good Use Cases:
+- "Implement user authentication system"
+- "Design new database schema"
+- "Create API documentation"
+- "Investigate performance issues"
+
+❌ Not Needed:
+- "Fix typo in README"
+- "Update package version"
+- "Quick CSS adjustment"
+- "Ask about meeting time"
+
+## Getting Started
+
+### Work Effort Lifecycle
+```mermaid
+graph TD
+    A[Need Identified] -->|Is it worth tracking?| B{Create Work Effort?}
+    B -->|Yes| C[Create WE]
+    B -->|No| D[Regular Task]
+
+    C --> E[Setup Initial Files]
+    E --> F[Create First Chat]
+
+    F --> G{Work Progress}
+    G -->|Discussion Needed| H[Create New Chat]
+    G -->|Update Status| I[Update Main File]
+    G -->|Complex Task| J[Create Child WE]
+
+    H --> G
+    I --> G
+    J --> G
+
+    G -->|Complete| K[Archive WE]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ff9,stroke:#333,stroke-width:2px
+    style C fill:#9f9,stroke:#333,stroke-width:2px
+    style K fill:#f99,stroke:#333,stroke-width:2px
+```
+
+### Quick Reference Guide
+
+| What You Need | When You Need It | Example |
+|--------------|------------------|----------|
+| Work Effort ID | Starting new project | `2432` or `WE2432-1117-2024` |
+| Chat ID | Having discussions | `CH2432-1117-2024-001` |
+| Status Update | Changed progress | `status: in-progress` |
+| Child Work Effort | Breaking down big tasks | `WE2432-1117-2024-a` |
+
+### Common Commands
+| Command | What It Does | When to Use |
+|---------|-------------|-------------|
+| `python create_work_effort.py 2432` | Creates new work effort | Starting new work |
+| `python create_chat.py 2432 001` | Creates new chat | Need discussion |
+| `python update_status.py 2432 completed` | Updates status | Work is done |
+| `python archive_we.py 2432` | Archives work effort | Project completed |
+
+### Creating a Work Effort
+
+1. Basic Creation:
 ```bash
 python create_work_effort.py 2432  # Creates WE2432-1117-2024
 ```
 
-## Work Effort Format
-
-### ID Structure
-`WE2432-1117-2024`
-- `WE`: Work Effort prefix
-- `2432`: Unique identifier
-- `1117`: Date (MMDD)
-- `2024`: Year
-
-### Supported Input Formats
-1. `2432` - Just the ID (adds today's date)
-2. `2432-1117` - ID and date (adds current year)
-3. `WE2432-1117-2024` - Full format
-
-## File Structure
-Each work effort contains:
-1. Main file: `WE2432-1117-2024.md`
-2. Router: `_router-WE2432-1117-2024.md`
-3. Directory: `chats/`
-
-### Chat ID Format
-`CH2432-1117-2024-001`
-- Sequential numbering (001, 002, etc.)
-- Matches parent work effort ID
-
-## Implementation Steps
-
-1. Create Work Effort
-   ```bash
-   python create_work_effort.py <ID>
+2. Supported ID Formats:
+   ```
+   2432           -> WE2432-1117-2024 (today's date)
+   2432-1117      -> WE2432-1117-2024 (current year)
+   WE2432-1117-2024 (full format)
    ```
 
-2. Initial Setup
-   - Add overview
-   - Set objectives
-   - Link related efforts
-   - Document requirements
-
-3. Link Documents
-   - Set parent effort
-   - Add child efforts
-   - Link related efforts
-
-4. Start Documentation
-   - Fill Initial Setup section
-   - Document requirements
-   - Create first iteration
-   - Set objectives
-
-5. Create First Chat
-   - Use proper chat ID format
-   - Link in router file
-   - Add description
-
-6. Track Progress
-   - Update status
-   - Check objectives
-   - Maintain chat history
-
-## Best Practices
-1. Use script for creation
-2. Keep chat history current
-3. Link related efforts
-4. Update status regularly
-5. Document decisions
-6. Use consistent formatting
-7. Set clear objectives
-
-## Related
-- [[Technical Documentation]]
-- [[Implementation Guidelines]]
-- [[Nova Process Overview]]
-
-## Tags
-#work-effort #system-design #documentation #process
-
-## Implementation Instructions
-
-### 1. Create New Work Effort
-```bash
-python create_work_effort.py <WE_ID>
-```
-
-#### Creation Options
-- Quick create: `python create_work_effort.py 2432`
-- Specific date: `python create_work_effort.py 2432-1117`
-- Full ID: `python create_work_effort.py WE2432-1117-2024`
-
-#### Validation Rules
-- ID must be 4 digits
-- Date must be valid (MMDD format)
-- Year defaults to current year
-- No special characters allowed
-
-### 2. Initial Content Setup
-
-#### Overview Section
-- Brief description of the work effort
-- Key objectives and goals
-- Expected outcomes
-- Timeline if known
-- Key stakeholders
-
-#### Technical Requirements
-- System dependencies
-- Required resources
-- Technical constraints
-- Performance requirements
-- Security considerations
-
-#### Objectives
-- SMART format (Specific, Measurable, Achievable, Relevant, Time-bound)
-- Prioritized list
-- Clear success criteria
-- Dependencies noted
-
-#### Related Work Efforts
-- Parent/child relationships
-- Parallel efforts
-- Dependent efforts
-- Blocked by/blocking
-
-### 3. Document Linking
-
-#### Parent Effort Linking
-- Identify parent work effort
-- Update parent-effort in frontmatter
-- Add reference in parent's child-efforts
-- Ensure bidirectional linking
-
-#### Child Efforts
-- Create child work efforts if needed
-- Link in child-efforts array
-- Document relationships
-- Track dependencies
-
-#### Related Efforts
-- Link similar work efforts
-- Document relationships
-- Note shared resources
-- Track cross-dependencies
-
-### 4. Documentation Development
-
-#### Initial Setup
-1. Requirements gathering
-   - Business requirements
-   - Technical requirements
-   - User requirements
-   - System requirements
-
-2. Scope definition
-   - In-scope items
-   - Out-of-scope items
-   - Assumptions
-   - Constraints
-
-3. Success criteria
-   - Acceptance criteria
-   - Testing requirements
-   - Quality metrics
-   - Performance targets
-
-#### Technical Documentation
-1. System design
-   - Architecture overview
-   - Component diagrams
-   - Data flow
-   - Integration points
-
-2. Implementation details
-   - Technologies used
-   - Code examples
-   - Configuration
-   - Dependencies
-
-3. Testing strategy
-   - Unit tests
-   - Integration tests
-   - Performance tests
-   - Security tests
-
-### 5. Chat Management
-
-#### Chat Creation
-1. File naming
-   ```
-   CH2432-1117-2024-001.md
-   ```
-   - Sequential numbering
-   - Matches parent WE
-   - Date consistency
-
-2. Content structure
-   - Clear topic/purpose
-   - Participants
-   - Decisions made
-   - Action items
-
-#### Router File Management
-1. Active conversations
-   - Current discussions
-   - Ongoing topics
-   - Priority items
-
-2. Archived conversations
-   - Completed discussions
-   - Historical context
-   - Decision records
-
-3. Linking strategy
-   - Proper markdown links
-   - Description of chat purpose
-   - Status indicators
-
-### 6. Progress Tracking
-
-#### Status Updates
-1. Frontmatter status
-   - in-progress
-   - completed
-   - blocked
-   - abandoned
-
-2. Objective tracking
-   - Checkbox updates
-   - Progress notes
-   - Blockers
-   - Dependencies
-
-3. Documentation updates
-   - Technical changes
-   - Requirement changes
-   - Scope changes
-   - Timeline updates
-
-#### Chat History
-1. Conversation management
-   - Active vs archived
-   - Decision tracking
-   - Action items
-   - Follow-ups
-
-2. Router maintenance
-   - Regular updates
-   - Clear descriptions
-   - Proper linking
-   - Status indicators
-
-#### Quality Control
-1. Regular reviews
-   - Documentation accuracy
-   - Link validation
-   - Tag consistency
-   - Format compliance
-
-2. Maintenance tasks
-   - Archive old chats
-   - Update statuses
-   - Clean up tags
-   - Verify relationships
-
-### 7. Best Practices
-
-#### Documentation
-1. Clear and concise writing
-2. Consistent formatting
-3. Regular updates
-4. Proper linking
-
-#### Organization
-1. Logical structure
-2. Clear hierarchy
-3. Easy navigation
-4. Consistent naming
-
-#### Communication
-1. Regular updates
-2. Clear decisions
-3. Action tracking
-4. Status reporting
-
-#### Maintenance
-1. Regular reviews
-2. Link validation
-3. Status updates
-4. Archive management
-
-## Work Effort Structure
-
-### Directory Layout
+### Directory Structure
+Your work effort will create this structure:
 ```
 WE2432-1117-2024/
 ├── WE2432-1117-2024.md           # Main work effort file
 ├── _router-WE2432-1117-2024.md   # Chat router
 └── chats/                        # Chat directory
-    ├── CH2432-1117-2024-001.md   # Initial planning chat
+    ├── CH2432-1117-2024-001.md   # Initial planning
     ├── CH2432-1117-2024-002.md   # Technical discussion
     └── CH2432-1117-2024-003.md   # Implementation details
 ```
 
-### Example Work Effort Hierarchy
-```
-WE2432-1117-2024/                 # Parent Work Effort: Build API System
-├── WE2432-1117-2024-a/           # Child: API Design
-├── WE2432-1117-2024-b/           # Child: Database Schema
-└── WE2432-1117-2024-c/           # Child: Authentication System
-```
+### Initial Setup Steps
 
-### Chat Router Example
-```markdown
----
-title: "Router - WE2432-1117-2024"
-work-effort: "[[WE2432-1117-2024]]"
-type: router
----
-
-# Chat History for WE2432-1117-2024
-
-## Active Conversations
-- [[CH2432-1117-2024-003]] - Implementing OAuth2 Authentication
-- [[CH2432-1117-2024-004]] - Database Schema Review
-
-## Archived Conversations
-- [[CH2432-1117-2024-001]] - Initial Project Planning
-  - Defined core requirements
-  - Set project timeline
-  - Identified key stakeholders
-- [[CH2432-1117-2024-002]] - Technical Architecture Discussion
-  - Chose technology stack
-  - Designed system architecture
-  - Documented API endpoints
-```
-
-### Chat File Example
-```markdown
----
-title: "CH2432-1117-2024-001 - Initial Project Planning"
-work-effort: "[[WE2432-1117-2024]]"
-chat-type: planning
-participants: [User, Assistant]
-status: completed
-created: 2024-11-17
-tags:
-  - chat
-  - planning
-  - requirements
----
-
-# Initial Project Planning
-
-## Key Decisions
-1. Project scope defined
-2. Timeline established
-3. Core requirements documented
-
-## Action Items
-- [ ] Create child work efforts
-- [ ] Set up development environment
-- [ ] Schedule team review
-
-## Chat History
-[Chat content here...]
-
-## Next Steps
-1. Technical architecture review
-2. Resource allocation
-3. Sprint planning
-```
-
-### Child Work Effort Example
-```markdown
----
-title: "WE2432-1117-2024-a"
-parent-effort: "[[WE2432-1117-2024]]"
-status: in-progress
-type: implementation
-created: 2024-11-17
-tags:
-  - api-design
-  - child-effort
----
-
-# API Design Implementation
-
-## Overview
-Child work effort focused on API design for the main system.
-
-## Parent Context
-This is part of the larger API System build (WE2432-1117-2024).
-
-## Objectives
-- [ ] Design RESTful endpoints
-- [ ] Document API specifications
-- [ ] Create OpenAPI schema
-
-## Related Chats
-- [[CH2432-1117-2024-a-001]] - API Design Planning
-- [[CH2432-1117-2024-a-002]] - Endpoint Specification Review
-```
-
-### Chat Naming Conventions
-
-1. Parent Work Effort Chats
-   - Format: `CH2432-1117-2024-001`
-   - Example sequence:
-     ```
-     CH2432-1117-2024-001  # Initial planning
-     CH2432-1117-2024-002  # Technical discussion
-     CH2432-1117-2024-003  # Implementation details
-     ```
-
-2. Child Work Effort Chats
-   - Format: `CH2432-1117-2024-a-001`
-   - Example sequence:
-     ```
-     CH2432-1117-2024-a-001  # Child effort A planning
-     CH2432-1117-2024-b-001  # Child effort B planning
-     CH2432-1117-2024-c-001  # Child effort C planning
-     ```
-
-### Chat Content Guidelines
-
-1. Initial Planning Chat
+1. Main File Setup:
    ```markdown
-   # Initial Planning (CH2432-1117-2024-001)
+   # WE2432-1117-2024
+
+   ## Overview
+   Brief description of the work effort purpose
 
    ## Objectives
-   - Define project scope
-   - Identify requirements
-   - Plan implementation
+   - [ ] Define system architecture
+   - [ ] Create database schema
+   - [ ] Implement authentication
 
-   ## Discussion
-   [Chat content...]
+   ## Technical Requirements
+   1. System dependencies
+   2. Performance targets
+   3. Security requirements
+   ```
 
-   ## Decisions Made
-   1. Technology stack chosen
-   2. Timeline established
-   3. Resources allocated
+2. Router File Example:
+   ```markdown
+   # Chat History for WE2432-1117-2024
+
+   ## Active Conversations
+   - [[CH2432-1117-2024-003]] - Database Schema Review
+
+   ## Archived Conversations
+   - [[CH2432-1117-2024-001]] - Initial Planning
+     - Defined requirements
+     - Set timeline
+   ```
+
+## Work Effort Management
+
+### Status Tracking
+Use these status values in the frontmatter:
+```yaml
+status: in-progress    # Active development
+status: blocked        # Waiting on dependencies
+status: completed      # Work finished
+status: archived       # Historical record
+```
+
+### Chat Management
+
+1. Creating New Chats:
+   ```bash
+   # Format: CH{WE-ID}-{sequential-number}
+   CH2432-1117-2024-001    # First chat
+   CH2432-1117-2024-002    # Second chat
+   ```
+
+2. Chat Content Template:
+   ```markdown
+   ---
+   title: "Initial Project Planning"
+   work-effort: "[[WE2432-1117-2024]]"
+   chat-type: planning
+   participants: [User, Assistant]
+   status: active
+   ---
+
+   ## Key Decisions
+   1. Selected technology stack
+   2. Defined API endpoints
 
    ## Action Items
-   - [ ] Create project structure
-   - [ ] Set up development environment
-   - [ ] Schedule team review
-   ```
-
-2. Technical Discussion Chat
-   ```markdown
-   # Technical Discussion (CH2432-1117-2024-002)
-
-   ## Topic
-   System Architecture Design
-
-   ## Key Points
-   - Database selection
-   - API structure
-   - Security requirements
-
-   ## Decisions
-   1. Using PostgreSQL
-   2. RESTful API design
-   3. JWT authentication
-
-   ## Next Steps
    - [ ] Create database schema
-   - [ ] Design API endpoints
-   - [ ] Set up security framework
+   - [ ] Setup development environment
    ```
 
-### Router Management Guidelines
+### Child Work Efforts
 
-1. Active vs Archived
-   - Keep active conversations at top
-   - Archive completed discussions
-   - Include brief summary with each link
+When to Create Children:
+1. Complex Features:
+   ```
+   WE2432-1117-2024/        # Parent: API System
+   ├── WE2432-1117-2024-a/  # Child: Authentication
+   ├── WE2432-1117-2024-b/  # Child: Database Schema
+   └── WE2432-1117-2024-c/  # Child: API Endpoints
+   ```
 
-2. Organization
-   - Group by topic/purpose
-   - Maintain chronological order
-   - Link related conversations
-
-3. Status Tracking
-   - Mark conversation status
-   - Track decision implementation
-   - Monitor action items
-
-### Work Effort Structure Flowchart
+2. Team Distribution:
+   ```
+   WE2433-1117-2024/        # Parent: Web App
+   ├── WE2433-1117-2024-a/  # Child: Frontend Team
+   ├── WE2433-1117-2024-b/  # Child: Backend Team
+   └── WE2433-1117-2024-c/  # Child: DevOps Team
+   ```
 
 ```mermaid
 graph TD
-    %% Main Work Effort
-    WE[WE2432-1117-2024] --> Router[_router-WE2432-1117-2024.md]
-    WE --> Chats[chats/]
-    WE --> Child1[WE2432-1117-2024-a]
-    WE --> Child2[WE2432-1117-2024-b]
-    WE --> Child3[WE2432-1117-2024-c]
+    A[Parent Work Effort] --> B[Child: Frontend]
+    A --> C[Child: Backend]
+    A --> D[Child: DevOps]
 
-    %% Router Connections
-    Router --> ActiveChats[Active Chats]
-    Router --> ArchivedChats[Archived Chats]
+    B --> E[Chats]
+    B --> F[Documentation]
 
-    %% Chat Directory
-    Chats --> CH1[CH2432-1117-2024-001]
-    Chats --> CH2[CH2432-1117-2024-002]
-    Chats --> CH3[CH2432-1117-2024-003]
+    C --> G[Chats]
+    C --> H[Documentation]
 
-    %% Child Work Efforts
-    Child1 --> Child1Router[_router-WE2432-1117-2024-a.md]
-    Child1 --> Child1Chats[chats/]
-    Child1Chats --> CH1_1[CH2432-1117-2024-a-001]
-    Child1Chats --> CH1_2[CH2432-1117-2024-a-002]
+    D --> I[Chats]
+    D --> J[Documentation]
 
-    %% Styling
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
-    classDef router fill:#e1f3d8,stroke:#333,stroke-width:2px;
-    classDef chats fill:#d8e5f3,stroke:#333,stroke-width:2px;
-    classDef child fill:#f3e1d8,stroke:#333,stroke-width:2px;
-
-    class WE default;
-    class Router,Child1Router router;
-    class Chats,Child1Chats,ActiveChats,ArchivedChats chats;
-    class Child1,Child2,Child3 child;
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#9f9,stroke:#333,stroke-width:2px
+    style C fill:#9f9,stroke:#333,stroke-width:2px
+    style D fill:#9f9,stroke:#333,stroke-width:2px
 ```
 
-### Process Flowchart
+### Common Workflows
 
-```mermaid
-flowchart TD
-    A[Create Work Effort] --> B{Has Parent?}
-    B -->|Yes| C[Link to Parent]
-    B -->|No| D[Standalone WE]
+| Scenario | Action | Example Command |
+|----------|--------|----------------|
+| Starting new discussion | Create chat | `python create_chat.py 2432 001` |
+| Task completed | Update status | `python update_status.py 2432 completed` |
+| Adding subtask | Create child | `python create_work_effort.py 2432-a` |
+| Project finished | Archive WE | `python archive_we.py 2432` |
 
-    C --> E[Setup Structure]
-    D --> E
+### Tips for Success
+- Create chats for important discussions
+- Keep status updated (at least weekly)
+- Link related work efforts
+- Document decisions promptly
+- Use child efforts for complex features
+- Archive completed work efforts
 
-    E --> F[Create Main File]
-    E --> G[Create Router]
-    E --> H[Create Chats Dir]
+## Common Issues & Solutions
 
-    F --> I[Initial Setup]
-    I --> J[Document Requirements]
-    J --> K[Set Objectives]
-
-    G --> L[Start First Chat]
-    L --> M[Document Decisions]
-    M --> N[Track Progress]
-
-    N -->|New Topic| L
-    N -->|Complete| O[Archive Chat]
-
-    subgraph "Child Work Efforts"
-    P[Create Child WE]
-    Q[Link to Parent]
-    R[Repeat Process]
-    end
-
-    K --> P
-    P --> Q
-    Q --> R
-```
-
-## Work Effort Organization Guidelines
-
-### When to Create Child Work Efforts
-
-#### Indicators for Creating Child Work Efforts
-1. **Complexity Threshold**
-   - More than 3 major components
-   - Multiple team dependencies
-   - Estimated timeline > 2 weeks
-   - Different technical domains involved
-
-2. **Scope Indicators**
-   - Distinct technical implementations
-   - Separate deployment phases
-   - Different resource requirements
-   - Independent testing cycles
-
-3. **Team Organization**
-   - Different teams responsible
-   - Specialized skill sets needed
-   - Parallel development possible
-   - Geographic/timezone distribution
-
-#### Examples
-
-1. **API Development Work Effort**
-   ```
-   WE2432-1117-2024/                 # Parent: API System
-   ├── WE2432-1117-2024-a/           # Child: Authentication
-   │   └── chats/                    # Auth-specific discussions
-   ├── WE2432-1117-2024-b/           # Child: Endpoints
-   │   └── chats/                    # Endpoint planning
-   └── WE2432-1117-2024-c/           # Child: Documentation
-       └── chats/                    # Doc planning
-   ```
-
-2. **Database Migration Work Effort**
-   ```
-   WE2433-1117-2024/                 # Parent: DB Migration
-   ├── WE2433-1117-2024-a/           # Child: Schema Design
-   ├── WE2433-1117-2024-b/           # Child: Data Transfer
-   └── WE2433-1117-2024-c/           # Child: Validation
-   ```
-
-#### Decision Flowchart
-
-```mermaid
-flowchart TD
-    A[New Work Effort] --> B{Complex?}
-    B -->|Yes| C{Multiple Components?}
-    B -->|No| D[Single WE]
-
-    C -->|Yes| E{Parallel Work?}
-    C -->|No| D
-
-    E -->|Yes| F[Create Child WEs]
-    E -->|No| G{Long Timeline?}
-
-    G -->|Yes| F
-    G -->|No| D
-
-    F --> H[Split by Component]
-    F --> I[Split by Phase]
-    F --> J[Split by Team]
-
-    style D fill:#90EE90
-    style F fill:#FFB6C1
-```
-
-#### Naming and Organization Rules
-
-1. **Parent Work Effort**
-   - Main concept/project
-   - Overall objectives
-   - High-level timeline
-   - Resource allocation
-
-2. **Child Work Efforts**
-   - Component-specific
-   - Clear dependencies
-   - Detailed requirements
-   - Team assignments
-
-3. **Chat Organization**
-   ```
-   Parent Chats:  CH2432-1117-2024-001    # Project-wide discussions
-   Child A Chats: CH2432-1117-2024-a-001  # Component A specific
-   Child B Chats: CH2432-1117-2024-b-001  # Component B specific
-   ```
-
-#### Best Practices
-
-1. **Documentation**
-   - Link child efforts in parent
-   - Maintain dependency graph
-   - Document interfaces
-   - Track cross-cutting concerns
-
-2. **Communication**
-   - Regular sync meetings
-   - Shared decision log
-   - Clear ownership
-   - Status reporting
-
-3. **Progress Tracking**
-   - Individual timelines
-   - Dependency management
-   - Risk assessment
-   - Resource allocation
-
-## Troubleshooting Guide
-
-### Common Issues and Solutions
-
-#### 1. ID Generation Issues
+### ID Generation Issues
 ```bash
 Error: Invalid WE ID format
 ```
-**Solutions:**
-- Verify 4-digit ID format (e.g., "2432")
-- Check date format (MMDD)
-- Ensure no special characters
-- Use script's built-in validation
+Solutions:
+- Use exactly 4 digits (e.g., 2432)
+- Valid date format (MMDD)
+- No special characters
+- Use script validation
 
-#### 2. File Structure Problems
+### File Structure Problems
 ```bash
 Error: Work Effort already exists
 ```
-**Solutions:**
-- Check existing directory
+Solutions:
+- Check existing WEs
 - Use unique ID
-- Archive old work effort if needed
-- Rename if necessary
+- Archive old WEs
+- Verify naming
 
-#### 3. Linking Issues
-```
-[[WE2432-1117-2024]] not found
-```
-**Solutions:**
-- Verify file exists
-- Check path is correct
-- Ensure proper markdown syntax
-- Update index if needed
+## Best Practices
 
-#### 4. Chat Management
+### Documentation
+1. Clear Descriptions:
+   ```markdown
+   ## Overview
+   This work effort implements OAuth2 authentication
+   using JWT tokens for the API system.
+
+   ## Scope
+   - User registration
+   - Login/logout
+   - Password reset
+   - Token management
+   ```
+
+2. Linking Strategy:
+   ```markdown
+   ## Related Work Efforts
+   - [[WE2432-1117-2024]] (Parent: API System)
+   - [[WE2432-1117-2024-b]] (Sibling: Database Schema)
+   ```
+
+### Progress Tracking
+1. Regular Updates:
+   ```markdown
+   ## Status Updates
+   - 2024-11-17: Started authentication implementation
+   - 2024-11-18: Completed user registration
+   - 2024-11-19: Testing password reset
+   ```
+
+2. Milestone Tracking:
+   ```markdown
+   ## Milestones
+   - [x] Database schema approved
+   - [x] API endpoints defined
+   - [ ] Authentication implemented
+   - [ ] Testing completed
+   ```
+
+### Common Mistakes to Avoid
+| Mistake | Impact | How to Fix |
+|---------|---------|------------|
+| Wrong ID format | Creation fails | Use script's default format |
+| Missing links | Hard to find related work | Always add parent/child links |
+| Outdated status | Team confusion | Update at least weekly |
+| No chat records | Lost decisions | Create chat for each discussion |
+| Incomplete docs | Knowledge gaps | Fill all required sections |
+
+### Getting Help
+1. First Steps:
+   - Check this documentation
+   - Look at similar work efforts
+   - Review error messages
+
+2. Who to Ask:
+   - Your team lead for process questions
+   - Technical lead for system issues
+   - Project manager for scope questions
+   - DevOps for script problems
+
+3. Where to Look:
+   ```markdown
+   ## Help Resources
+   - [[Technical Documentation]]
+   - [[Work Efforts Management]]
+   - [[Nova Process Overview]]
+   - Team chat channel: #work-efforts-help
+   ```
+
+## Related Resources
+- [[Work Efforts Management]]
+- [[Technical Documentation]]
+- [[Nova Process Overview]]
+
+## Tags
+#guidelines #work-effort #process #documentation
+
+## Real-World Examples & Scenarios
+
+### Example 1: Feature Implementation
+```mermaid
+graph TD
+    A[WE2432: New User Dashboard] --> B[WE2432-a: Frontend]
+    A --> C[WE2432-b: Backend API]
+    A --> D[WE2432-c: Database]
+
+    B --> E[CH001: Design Review]
+    B --> F[CH002: Component Structure]
+
+    C --> G[CH001: API Endpoints]
+    C --> H[CH002: Auth Flow]
+
+    D --> I[CH001: Schema Design]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#9f9,stroke:#333,stroke-width:2px
+    style C fill:#9f9,stroke:#333,stroke-width:2px
+    style D fill:#9f9,stroke:#333,stroke-width:2px
 ```
-Error: Invalid chat sequence number
+
+### Example 2: Bug Investigation
+```markdown
+# WE2433-1117-2024: Investigate Login Performance
+
+## Overview
+Users reporting 5+ second delays during login attempts.
+
+## Investigation Steps
+- [x] Collect performance metrics
+- [x] Review server logs
+- [ ] Test different network conditions
+- [ ] Profile database queries
+
+## Chats
+- CH001: Initial problem review
+- CH002: Database query analysis
+- CH003: Network latency discussion
 ```
-**Solutions:**
-- Check router file for last number
-- Follow sequential ordering
-- Update router links
-- Verify chat ID format
+
+### Example 3: Documentation Project
+```markdown
+# WE2434-1117-2024: API Documentation Update
+
+## Objectives
+- [ ] Update all endpoint descriptions
+- [ ] Add request/response examples
+- [ ] Create usage tutorials
+- [ ] Update error documentation
+
+## Child Work Efforts
+- WE2434-a: Authentication Endpoints
+- WE2434-b: User Management APIs
+- WE2434-c: Admin Functions
+```
+
+### Common Workflows
+
+#### 1. Starting a New Feature
+```bash
+# 1. Create main work effort
+python create_work_effort.py 2432
+
+# 2. Create child efforts for components
+python create_work_effort.py 2432-a  # Frontend
+python create_work_effort.py 2432-b  # Backend
+python create_work_effort.py 2432-c  # Database
+
+# 3. Start initial discussion
+python create_chat.py 2432 001
+```
+
+#### 2. Daily Development
+```markdown
+## Morning
+1. Check WE status
+2. Update progress
+3. Create new chats if needed
+
+## During Development
+1. Document decisions in chats
+2. Update status as needed
+3. Link related resources
+
+## End of Day
+1. Update milestones
+2. Document blockers
+3. Plan next steps
+```
+
+#### 3. Project Completion
+```markdown
+## Completion Checklist
+1. All objectives marked complete
+2. Documentation updated
+3. Chats archived
+4. Status set to completed
+5. Final review conducted
+```
+
+### Template Library
+
+#### 1. Feature Implementation Template
+```markdown
+# WE{ID}: Feature Name
+
+## Overview
+[Brief description of the feature]
+
+## Objectives
+- [ ] Design phase
+- [ ] Implementation
+- [ ] Testing
+- [ ] Documentation
+
+## Technical Requirements
+1. Dependencies
+2. Performance criteria
+3. Security requirements
+
+## Timeline
+- Design: 1 week
+- Implementation: 2 weeks
+- Testing: 1 week
+```
+
+#### 2. Bug Investigation Template
+```markdown
+# WE{ID}: Bug Investigation
+
+## Issue Description
+[Detailed description of the bug]
+
+## Impact
+- Severity: [High/Medium/Low]
+- Affected Users: [Count/Percentage]
+- Systems Affected: [List]
+
+## Investigation Steps
+- [ ] Reproduce issue
+- [ ] Collect logs
+- [ ] Analyze data
+- [ ] Identify root cause
+```
+
+#### 3. Documentation Project Template
+```markdown
+# WE{ID}: Documentation Update
+
+## Scope
+[What needs to be documented]
+
+## Sections to Update
+- [ ] Overview
+- [ ] API Reference
+- [ ] Tutorials
+- [ ] Examples
+
+## Review Process
+1. Technical review
+2. Content review
+3. User testing
+```
+
+## Troubleshooting Guide
+
+### Common Error Messages
+
+| Error Message | Likely Cause | Solution |
+|--------------|--------------|----------|
+| `Invalid WE ID format` | Incorrect ID pattern | Use format: `2432` or `2432-1117` or `2432-a` |
+| `Parent work effort doesn't exist` | Creating child without parent | Create parent WE first |
+| `Permission denied` | File system permissions | Check folder permissions |
+| `Work Effort already exists` | Duplicate WE creation | Use a different ID or archive old WE |
+| `A child effort with suffix 'a' already exists` | Duplicate child suffix | Use next available letter (b, c, etc.) |
 
 ### Quick Fixes
 
-1. **Broken Links**
+1. **Script Won't Run:**
    ```bash
-   python validate_links.py WE2432-1117-2024
+   # Check Python version
+   python --version  # Should be 3.8+
+
+   # Check permissions
+   ls -l create_work_effort.py
+   chmod +x create_work_effort.py
    ```
 
-2. **Missing Files**
+2. **Parent-Child Issues:**
    ```bash
-   python repair_structure.py WE2432-1117-2024
+   # Correct order
+   python create_work_effort.py 2432    # Create parent first
+   python create_work_effort.py 2432-a  # Then create child
    ```
 
-3. **Router Sync**
+3. **File Structure Problems:**
    ```bash
-   python sync_router.py WE2432-1117-2024
+   # Check directory structure
+   tree WE2432-1117-2024/
+
+   # Fix missing router
+   python create_work_effort.py --fix-router 2432
    ```
 
-## Work Effort Lifecycle Management
+### Recovery Steps
 
-### 1. Creation Phase
-```mermaid
-graph TD
-    A[Identify Need] --> B[Create WE]
-    B --> C[Setup Structure]
-    C --> D[Initial Documentation]
-    D --> E[First Chat]
-```
+1. **Corrupted Work Effort:**
+   ```bash
+   # Backup existing files
+   cp -r WE2432-1117-2024/ WE2432-1117-2024_backup/
 
-### 2. Active Development
-```mermaid
-graph TD
-    A[Active WE] --> B[Regular Updates]
-    B --> C[Chat Sessions]
-    C --> D[Document Decisions]
-    D --> E[Track Progress]
-    E --> B
-```
-
-### 3. Status Transitions
-
-#### Active → Complete
-1. Final Documentation
-   - Update all objectives
-   - Document outcomes
-   - Link deliverables
-   - Archive chats
-
-2. Cleanup Tasks
-   - Verify all links
-   - Complete action items
-   - Update dependencies
-   - Archive router
-
-#### Active → Blocked
-1. Document Blockers
-   - Identify issues
-   - Link dependencies
-   - Note requirements
-   - Set conditions
-
-2. Maintenance Tasks
-   - Regular status check
-   - Update stakeholders
-   - Monitor dependencies
-   - Track changes
-
-### 4. Archival Process
-
-#### Preparation
-1. **Documentation Review**
-   - Complete all items
-   - Update status
-   - Verify links
-   - Add summaries
-
-2. **Chat Management**
-   ```
-   WE2432-1117-2024/
-   └── archived/
-       ├── chats/
-       ├── _router-WE2432-1117-2024.md
-       └── WE2432-1117-2024.md
+   # Recreate work effort
+   python create_work_effort.py --force 2432
    ```
 
-#### Archive Steps
-1. Move to archive location
-2. Update references
-3. Add archive metadata
-4. Generate final report
+2. **Missing Parent Links:**
+   ```bash
+   # Update parent-child relationships
+   python update_we_links.py 2432
+   ```
 
-### 5. Maintenance States
+3. **Broken Chat Router:**
+   ```bash
+   # Regenerate router file
+   python create_chat.py --rebuild-router 2432
+   ```
 
-#### Active Development
-```yaml
-status: in-progress
-progress: 75
-last_updated: 2024-11-17
-active_chats: true
-```
+### Best Practices for Prevention
 
-#### Blocked
-```yaml
-status: blocked
-blockers:
-  - dependency_we: WE2433
-  - required_resource: "API Access"
-last_updated: 2024-11-17
-```
+1. **Before Creating Work Efforts:**
+   - Check existing WE IDs
+   - Verify parent exists for child efforts
+   - Use `--dry-run` flag to preview
 
-#### Completed
-```yaml
-status: completed
-completion_date: 2024-11-17
-archived: true
-final_report: "[[WE2432-1117-2024-Report]]"
-```
+2. **During Development:**
+   - Keep status updated
+   - Link related work efforts
+   - Use chat system for discussions
 
-### 6. Lifecycle Automation
+3. **Regular Maintenance:**
+   - Archive completed work efforts
+   - Update parent-child relationships
+   - Clean up unused chats
 
-#### Status Updates
-```bash
-# Update WE status
-python update_status.py WE2432-1117-2024 --status blocked
-```
+### Getting Additional Help
 
-#### Progress Tracking
-```bash
-# Generate progress report
-python generate_report.py WE2432-1117-2024
-```
+1. **Internal Resources:**
+   - Check `#work-efforts` Slack channel
+   - Review system documentation
+   - Contact your team lead
 
-#### Archival
-```bash
-# Archive completed work effort
-python archive_we.py WE2432-1117-2024
-```
+2. **External Support:**
+   - Submit issue in GitLab
+   - Check knowledge base
+   - Contact system administrator
 
-### 7. Best Practices
+## Version History
 
-#### Regular Maintenance
-- Weekly status updates
-- Monthly cleanup
-- Quarterly review
-- Yearly archival
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2024-11-17 | Initial release |
+| 1.0.1 | 2024-11-18 | Added troubleshooting guide |
+| 1.1.0 | 2024-11-19 | Added support for child efforts |
 
-#### Documentation
-- Keep history current
-- Document transitions
-- Track decisions
-- Maintain links
+---
 
-#### Communication
-- Status notifications
-- Blocker alerts
-- Progress updates
-- Archive notices
+> [!tip] Need Help?
+> If you're stuck, remember to check the troubleshooting guide above or reach out to the support team in the `#work-efforts` Slack channel.
