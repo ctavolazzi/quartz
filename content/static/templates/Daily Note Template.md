@@ -5,19 +5,10 @@ tags:
   - daily-notes
 ai-news: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
 ---
-
-<%*
-await tp.file.create_new(
-    tp.file.find_tfile("AI News Template"),
-    `AI News/AI-News-${tp.date.now("YYYY-MM-DD")}`,
-    false
-);
--%>
-
-[[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]]]
-
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 > Week <% tp.date.now("ww") %> of <% tp.date.now("YYYY") %> • Q<% tp.date.now("Q") %>
+
+[[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
 
 ## 📊 Day at a Glance
 - 🗓️ **Day:** <% tp.date.now("DDD") %> of <% tp.date.now("YYYY") %>
@@ -37,6 +28,9 @@ try {
 } %>%
 - 🎯 **Days until EOY:** <% moment(tp.date.now("YYYY") + "-12-31").diff(moment(), 'days') %>
 - 🔄 **Created at:** <% tp.file.creation_date("h:mm A") %>
+
+# 📰 AI News
+[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>|Today's AI News]]
 
 ---
 
