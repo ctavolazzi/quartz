@@ -86,17 +86,18 @@ module.exports = async function (params) {
     console.log("Response data:", responseData);
 
     if (!response.ok) {
-      const errorMessage = responseData.error?.message || 'Unknown API error';
-      throw new Error(`DALL-E API error (${response.status}): ${errorMessage}`);
+      throw new Error(
+        `DALL-E API error: ${response.status}\n${
+          responseData.error?.message || JSON.stringify(responseData)
+        }`
+      );
     }
 
-    if (!responseData.data?.[0]?.url) {
-      console.error("Unexpected response format:", responseData);
-      throw new Error("No image URL in API response");
+    if (!responseData.data || !responseData.data[0].url) {
+      throw new Error("No image URL returned from DALL-E");
     }
 
     const imageUrl = responseData.data[0].url;
-    console.log("Image URL received:", imageUrl.substring(0, 50) + "...");
 
     // Format the image markdown with attribution
     const imageMarkdown = `
