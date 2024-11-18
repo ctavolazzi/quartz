@@ -1,9 +1,9 @@
 ---
-title: "<% tp.date.now("MMMM D, YYYY") %> • Daily Note"
-date: <% tp.date.now("YYYY-MM-DD") %>
+title: '<% tp.date.now("MMMM D, YYYY") %> • Daily Note'
+date: '<% tp.date.now("YYYY-MM-DD") %>'
 tags:
   - daily-notes
-ai-news: "[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]"
+ai-news: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
 ---
 
 <%*

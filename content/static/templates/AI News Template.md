@@ -4,7 +4,7 @@ date: '<% tp.date.now("YYYY-MM-DD") %>'
 tags:
   - ai-news
   - daily-notes
-related: [[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]]
+related: '[[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]]'
 ---
 
 [[AI News/<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[AI News/index|📚 Archive]] | [[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]] | [[AI News/<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
