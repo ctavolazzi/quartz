@@ -1,10 +1,22 @@
 ---
 title: Home 🌱
+type: index
+status: active
+created: 2024-11-17
+modified: 2024-11-17
+aliases:
+  - home
+  - start
+  - dashboard
 tags:
-  - index
-  - knowledge-garden
-  - daily-log
-  - dev-log
+  - "#home"
+  - "#index"
+  - "#root"
+links:
+  - "[[Work Effort Management]]"
+  - "[[Daily-Notes/]]"
+  - "[[Documentation/]]"
+  - "[[Work-Efforts/]]"
 ---
 <marquee style="
   color: #ffffff;
@@ -36,11 +48,39 @@ tags:
 See all files here:
 # [[TOC]]
 
-# Work Efforts 🚧
-[[Work Efforts Management]]
-[[Work Effort Implementation Guidelines]]
-[[WE2024-1117-2430]]
-[[WE3333-1117-2024]]
+## Active Work Efforts 🚧
+
+<div style="
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid rgba(255,255,255,0.2);
+">
+
+### Current Projects
+- [[WE2024-1117-2430]] - Nova System Implementation
+- [[WE3333-1117-2024]] - System Integration
+
+### Process Documentation
+- [[Work Efforts Management|📋 Management Overview]]
+- [[Work Effort Implementation Guidelines|🔧 Implementation Guide]]
+
+<a href="[[Work-Efforts/]]" style="
+  display: inline-block;
+  padding: 8px 16px;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #ffffff;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+">
+  View All Work Efforts →
+</a>
+
+</div>
 
 Hey there! You've entered a space that's a bit different from your typical blog or portfolio. This is a **living knowledge garden**, a raw, evolving repository of my ideas, projects, and unfiltered thoughts. Here, I'm recording my journey day by day, so you'll see both the breakthroughs and the messy bits.
 
@@ -132,20 +172,16 @@ This section demonstrates something interesting: real-time API calls in what's s
     window.dailyNoteLinkSet = false;
   }
 
-  if (typeof window.pokemonSet === 'undefined') {
-    window.pokemonSet = false;
+  // Add this check for Pokemon initialization
+  if (typeof window.pokemonInitialized === 'undefined') {
+    window.pokemonInitialized = false;
   }
 
-  if (typeof window.linkIntervalId === 'undefined') {
-    window.linkIntervalId = null;
-  }
-
-  if (typeof window.pokemonIntervalId === 'undefined') {
-    window.pokemonIntervalId = null;
-  }
-
-  // Keep the rest of the code exactly as it was in the working version
+  // Then modify the initPokemon function
   function initPokemon() {
+    // Only proceed if not already initialized
+    if (window.pokemonInitialized) return;
+
     async function loadPokemon() {
       const pokemonInfo = document.getElementById('pokemon-info');
       try {
@@ -264,6 +300,8 @@ This section demonstrates something interesting: real-time API calls in what's s
     if (refreshButton) {
       refreshButton.addEventListener('click', loadPokemon);
     }
+
+    window.pokemonInitialized = true;
   }
 
   // Initial call
@@ -286,9 +324,6 @@ This section demonstrates something interesting: real-time API calls in what's s
       console.log('Link element not found');
     }
   }
-
-  // Define a variable to track if link has been set
-  let dailyNoteLinkSet = false;
 
   // Define function to start interval
   function startLinkInterval() {
@@ -313,7 +348,6 @@ This section demonstrates something interesting: real-time API calls in what's s
   window.addEventListener('popstate', function() {
     console.log('Navigation occurred, resetting flag');
     window.dailyNoteLinkSet = false;  // Reset window version
-    dailyNoteLinkSet = false;         // Reset local version
     setDailyNoteLink();              // Actually reset the link
     intervalId = startLinkInterval();
   });
@@ -356,7 +390,7 @@ This section demonstrates something interesting: real-time API calls in what's s
   });
 </script>
 
-### What You'll Find Here 🔍
+### What You'll Find Here
 
 - **Daily Development Logs**: Raw, unfiltered thoughts and progress
 - **Project Updates**: Real-time documentation of what I'm building
@@ -369,4 +403,436 @@ This section demonstrates something interesting: real-time API calls in what's s
 
 <div align="center">
 *Welcome to the unfiltered journey of a knowledge garden in motion.*
+
+<a href="#" style="
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 16px;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+">
+  ⬆️ Back to Top
+</a>
 </div>
+
+## 📊 Quick Stats
+
+<div style="
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+">
+
+<div style="
+  background: linear-gradient(145deg, rgba(130,255,130,0.1) 0%, rgba(130,255,130,0.05) 100%);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(130,255,130,0.2);
+">
+  <h3 style="margin: 0;">🌱 Notes</h3>
+  <p style="font-size: 1.8em; margin: 10px 0;">142</p>
+  <small>Growing daily</small>
+</div>
+
+<div style="
+  background: linear-gradient(145deg, rgba(130,130,255,0.1) 0%, rgba(130,130,255,0.05) 100%);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(130,130,255,0.2);
+">
+  <h3 style="margin: 0;">🚀 Projects</h3>
+  <p style="font-size: 1.8em; margin: 10px 0;">7</p>
+  <small>Active now</small>
+</div>
+
+<div style="
+  background: linear-gradient(145deg, rgba(255,130,130,0.1) 0%, rgba(255,130,130,0.05) 100%);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(255,130,130,0.2);
+">
+  <h3 style="margin: 0;">💡 Ideas</h3>
+  <p style="font-size: 1.8em; margin: 10px 0;">23</p>
+  <small>In development</small>
+</div>
+
+</div>
+
+## 🎯 Featured Content
+
+<div style="
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+">
+
+<div style="
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+">
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #00ff00, #00ff00);
+  "></div>
+  <h3>🔥 Trending</h3>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="margin: 10px 0;">
+      <a href="[[WE2024-1117-2430]]" style="text-decoration: none;">
+        🚀 Nova System Launch
+      </a>
+    </li>
+    <li style="margin: 10px 0;">
+      <a href="[[Technical Documentation]]" style="text-decoration: none;">
+        📚 Latest Tech Docs
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div style="
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+">
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff3366, #ff3366);
+  "></div>
+  <h3>⚡ Quick Links</h3>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="margin: 10px 0;">
+      <a href="[[Work Efforts Management]]" style="text-decoration: none;">
+        📋 Project Overview
+      </a>
+    </li>
+    <li style="margin: 10px 0;">
+      <a href="[[Implementation Guidelines]]" style="text-decoration: none;">
+        🛠️ Implementation Guide
+      </a>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+## 📅 Recent Activity
+
+<div style="
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+">
+  <div style="
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+  ">
+    <div style="
+      min-width: 200px;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s ease-in-out;
+      &:hover {
+        transform: translateY(-2px);
+      }
+    ">
+      <small style="color: rgba(255,255,255,0.6);">Today</small>
+      <h4 style="margin: 5px 0;">🔄 System Update</h4>
+      <p style="font-size: 0.9em; margin: 5px 0;">Updated Nova implementation docs</p>
+      <div style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #3498db, #2ecc71);
+        animation: fadeIn 0.3s ease-out;
+      "></div>
+    </div>
+
+    <div style="
+      min-width: 200px;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s ease-in-out;
+      &:hover {
+        transform: translateY(-2px);
+      }
+    ">
+      <small style="color: rgba(255,255,255,0.6);">Yesterday</small>
+      <h4 style="margin: 5px 0;">📝 New Document</h4>
+      <p style="font-size: 0.9em; margin: 5px 0;">Added technical specifications</p>
+      <div style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #3498db, #2ecc71);
+        animation: fadeIn 0.3s ease-out;
+      "></div>
+    </div>
+  </div>
+</div>
+
+## 🌈 Feature Showcase
+
+<div style="
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+">
+  <!-- Floating Orbs in Background -->
+  <div style="
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, rgba(125,125,255,0.1) 0%, rgba(125,125,255,0) 70%);
+    border-radius: 50%;
+    top: -75px;
+    left: -75px;
+    filter: blur(20px);
+  "></div>
+  <div style="
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(255,125,125,0.1) 0%, rgba(255,125,125,0) 70%);
+    border-radius: 50%;
+    bottom: -100px;
+    right: -100px;
+    filter: blur(25px);
+  "></div>
+
+  <!-- Card 1: Floating Stats -->
+  <div style="
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  ">
+    <div style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #3498db, #2ecc71);
+    "></div>
+    <h3 style="margin: 10px 0;">✨ Active Projects</h3>
+    <div style="
+      font-size: 3em;
+      font-weight: bold;
+      margin: 15px 0;
+      background: linear-gradient(45deg, #3498db, #2ecc71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    ">42</div>
+    <div style="
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: rgba(255,255,255,0.6);
+    ">
+      <span style="color: #2ecc71;">↑</span> 12% from last week
+    </div>
+  </div>
+
+  <!-- Card 2: Activity Stream -->
+  <div style="
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2));
+    "></div>
+    <h3 style="margin: 10px 0;">🔥 Latest Updates</h3>
+    <div style="
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    ">
+      <div style="
+        padding: 10px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.05);
+        position: relative;
+        overflow: hidden;
+      ">
+        <div style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(180deg, #3498db, transparent);
+        "></div>
+        <small style="color: rgba(255,255,255,0.5);">Just now</small>
+        <p style="margin: 5px 0;">🚀 Deployed v2.0.1</p>
+      </div>
+      <div style="
+        padding: 10px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.05);
+        position: relative;
+        overflow: hidden;
+      ">
+        <div style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(180deg, #2ecc71, transparent);
+        "></div>
+        <small style="color: rgba(255,255,255,0.5);">2h ago</small>
+        <p style="margin: 5px 0;">📝 Updated documentation</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## 🎯 Progress Trackers
+
+<div style="
+  background: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+">
+  <!-- Animated Progress Bar -->
+  <div style="margin-bottom: 20px;">
+    <div style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    ">
+      <span>Project Completion</span>
+      <span style="
+        background: rgba(255,255,255,0.1);
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.9em;
+      ">78%</span>
+    </div>
+    <div style="
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
+      position: relative;
+    ">
+      <div style="
+        width: 78%;
+        height: 100%;
+        background: linear-gradient(90deg, #3498db, #2ecc71);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+      ">
+        <div style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.2),
+            transparent
+          );
+          animation: shimmer 2s infinite linear;
+        "></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+</style>
+
+## Design Showcases 🎨
+<a href="neumorphic-showcase" style="
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 15px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  &:hover {
+    background: rgba(255,255,255,0.15);
+  }
+">
+  Explore Neumorphic UI →
+</a>
+
