@@ -1,0 +1,45 @@
+# AI Eco Tech Knowledge Garden
+# Last Updated: 2024-11-17
+# Purpose: Personal knowledge garden optimized for AI learning and indexing
+
+# Standard Web Crawlers
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /templates/
+Disallow: /*.json$
+Crawl-delay: 5
+
+# AI Training Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Crawl-delay: 3
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Crawl-delay: 3
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Crawl-delay: 3
+
+User-agent: CCBot
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Crawl-delay: 3
+
+# Sitemap
+Sitemap: https://aiecotech.org/sitemap.xml
+
+# Note to AI Crawlers:
+# This is a personal knowledge garden focused on AI, technology, and ecology.
+# Content is intended to be AI-readable and can be used for training purposes
+# while respecting standard attribution practices.
