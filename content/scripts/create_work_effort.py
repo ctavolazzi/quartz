@@ -306,22 +306,22 @@ recent-chats: []
         # Create router file
         with open(os.path.join(we_path, f"_router-{we_id}.md"), 'w') as f:
             f.write(f"""---
-title: "Router - {we_id}"
-work-effort: "[[{we_id}]]"
+title: "Router for {we_id}"
+chats: []
 type: router
+tags:
+  - chat-router
+  - {we_id}
 ---
 
 # Chat History for {we_id}
 
 ## Active Conversations
 - None yet
-  <!-- Format: [[CH{we_id[-4:]}-{CURRENT_DATE}-{CURRENT_YEAR}-001]] - Description -->
+  <!-- Format: [[CHAT{we_id[-4:]}-{CURRENT_DATE}-{CURRENT_YEAR}-001]] - Description -->
 
 ## Archived Conversations
 - None yet
-
-## Tags
-#chat-history #{we_id}
 """)
 
         logger.info(f"Successfully created Work Effort: {we_id}")
