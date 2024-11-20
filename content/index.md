@@ -56,6 +56,7 @@ links:
 ">
 
 ### Current Projects
+- ☀️☕️ [[NovaBrew]] - New Podcast for YouTube
 - 📁 [[WE2024-1117-2430]] - Nova System Implementation
 - 📁 [[WE3333-1117-2024]] - System Integration
 

@@ -257,6 +257,8 @@ recent-chats: []
 
 # {we_id}
 
+[[_router-{we_id}]]
+
 ## Initial Setup
 
 > [!question] Initial Requirements
