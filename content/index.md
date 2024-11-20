@@ -44,7 +44,6 @@ links:
 ">
   Daily Note 🗓
 </a>
-
 ## Active Work Efforts 🚧
 
 <div style="
@@ -56,6 +55,8 @@ links:
 ">
 
 ### Current Projects
+- 🧠[[Winfo]] - LLM workflow management plugin for Obsidian
+- [[WE4458-1119-2024]] - Demonstration of the workflow kickoff for Winfo (this shit is sick if you're a data nerd like me)
 - ☀️☕️ [[NovaBrew]] - New Podcast for YouTube
 - 📁 [[WE2024-1117-2430]] - Nova System Implementation
 - 📁 [[WE3333-1117-2024]] - System Integration
