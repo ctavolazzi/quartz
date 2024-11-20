@@ -4,7 +4,15 @@ date: '<% tp.date.now("YYYY-MM-DD") %>'
 tags:
   - ai-news
   - daily-notes
-related: '[[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]]'
+  - week-<% tp.date.now("ww") %>
+  - q<% tp.date.now("Q") %>
+work_efforts:
+  - "[[WE0001-1119-2024]]"
+related_notes: '[[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]]'
+related_videos:
+  - "[[Video1]]"
+  - "[[Video2]]"
+  - "[[Video3]]"
 ---
 
 [[AI News/<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[AI News/index|📚 Archive]] | [[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]] | [[AI News/<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]

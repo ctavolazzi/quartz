@@ -4,6 +4,12 @@ date: '<% tp.date.now("YYYY-MM-DD") %>'
 tags:
   - daily-notes
 ai-news: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
+work_efforts:
+  - "[[WE0001-1119-2024]]"
+related_notes: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
+related_videos:
+  - "[[Video1]]"
+  - "[[Video2]]"
 ---
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 > Week <% tp.date.now("ww") %> of <% tp.date.now("YYYY") %> • Q<% tp.date.now("Q") %>
