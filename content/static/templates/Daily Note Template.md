@@ -1,6 +1,6 @@
 ---
-title: '<% tp.date.now("MMMM D, YYYY") %> • Daily Note'
-date: '<% tp.date.now("YYYY-MM-DD") %>'
+title: <% tp.date.now("MMMM D, YYYY") %> • Daily Note
+date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - daily-notes
 ai-news: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
@@ -8,8 +8,6 @@ work_efforts:
   - "[[WE0001-1119-2024]]"
 related_notes: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
 related_videos:
-  - "[[Video1]]"
-  - "[[Video2]]"
 ---
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 > Week <% tp.date.now("ww") %> of <% tp.date.now("YYYY") %> • Q<% tp.date.now("Q") %>
@@ -17,23 +15,31 @@ related_videos:
 [[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
 
 ## 📊 Day at a Glance
-- 🗓️ **Day:** <% tp.date.now("DDD") %> of <% tp.date.now("YYYY") %>
+- 🗓️ **Day:** <% tp.date.now("DDD") %> of <% tp.date.now("YYYY") %> (<%*
+try {
+  const dayOfYear = parseInt(tp.date.now("DDD"));
+  const percentageOfYear = Math.round((dayOfYear / 365) * 100);
+  tR += `${percentageOfYear}%`;
+} catch (error) {
+  tR += "Error";
+} %>)
 - 📅 **Week:** <% tp.date.now("ww") %> of 52
 - 📊 **Quarter Progress:** <%*
 try {
-  const now = tp.date.now("DDD");
-  const quarter = tp.date.now("Q");
-  const startOfQuarter = moment().quarter(quarter).startOf('quarter').dayOfYear();
-  const endOfQuarter = moment().quarter(quarter).endOf('quarter').dayOfYear();
-  const daysInQuarter = endOfQuarter - startOfQuarter + 1;
-  const dayOfQuarter = now - startOfQuarter + 1;
-  const progress = Math.round((dayOfQuarter / daysInQuarter) * 100);
-  tR += progress;
+  const now = moment();
+  const quarter = now.quarter();
+  const startOfQuarter = moment().quarter(quarter).startOf('quarter');
+  const endOfQuarter = moment().quarter(quarter).endOf('quarter');
+  const totalDaysInQuarter = endOfQuarter.diff(startOfQuarter, 'days') + 1;
+  const currentDayInQuarter = now.diff(startOfQuarter, 'days') + 1;
+  const progress = Math.round((currentDayInQuarter / totalDaysInQuarter) * 100);
+  tR += `${currentDayInQuarter} of ${totalDaysInQuarter} (${progress}%)`;
 } catch (error) {
-  tR += "Error";
-} %>%
+  tR += "Error calculating progress.";
+} %>
 - 🎯 **Days until EOY:** <% moment(tp.date.now("YYYY") + "-12-31").diff(moment(), 'days') %>
 - 🔄 **Created at:** <% tp.file.creation_date("h:mm A") %>
+
 
 # 📰 AI News
 [[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>|Today's AI News]]
