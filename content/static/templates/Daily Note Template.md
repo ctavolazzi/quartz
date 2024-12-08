@@ -14,7 +14,7 @@ newsletter: '[[Newsletters/NovaBrew-<% tp.date.now("YYYY-MM-DD") %>]]'
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 > Week <% tp.date.now("ww") %> of <% tp.date.now("YYYY") %> • Q<% tp.date.now("Q") %>
 
-[[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
+[[Daily-Notes/<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[Daily-Notes/<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
 
 ## 📊 Day at a Glance
 - 🗓️ **Day:** <% tp.date.now("DDD") %> of <% tp.date.now("YYYY") %> (<%*
@@ -78,20 +78,20 @@ try {
 
 ## 📱 Creator Hub
 **Content Pipeline**
-- [[Content Calendar|📅 Schedule]]
-- [[Video Ideas|🎥 Ideas]]
-- [[TikTok Scripts|📝 TikTok]]
-- [[YouTube Scripts|🎬 YouTube]]
+- [[20-Knowledge/23-Notes/Content-Calendar|📅 Schedule]]
+- [[20-Knowledge/23-Notes/Video-Ideas|🎥 Ideas]]
+- [[20-Knowledge/23-Notes/TikTok-Scripts|📝 TikTok]]
+- [[20-Knowledge/23-Notes/YouTube-Scripts|🎬 YouTube]]
 
 **Latest Analytics**
-- [[TikTok Stats|📊 TikTok]]
-- [[YouTube Stats|📈 YouTube]]
-- [[Instagram Stats|📸 Instagram]]
+- [[20-Knowledge/23-Notes/TikTok-Stats|📊 TikTok]]
+- [[20-Knowledge/23-Notes/YouTube-Stats|📈 YouTube]]
+- [[20-Knowledge/23-Notes/Instagram-Stats|📸 Instagram]]
 
 **Projects**
-- [[NovaSystem|🤖 Nova]]
-- [[Knowledge Garden|🌳 Garden]]
-- [[Multiverse School|🎓 Classes]]
+- [[30-Projects/31-NovaSystem/NovaSystem|🤖 Nova]]
+- [[30-Projects/34-KnowledgeGarden/Knowledge-Garden|🌳 Garden]]
+- [[30-Projects/32-MultiVerse/The-Multiverse-School|🎓 Classes]]
 
 **Connect with Me**
 - [Twitter](https://twitter.com/yourusername)
@@ -105,12 +105,12 @@ try {
 - [[Prompts/Code|💻 Code]]
 
 **Models**
-- [[GPT-4|💬 GPT]]
-- [[Claude|🧠 Claude]]
-- [[Ollama|🏠 Local]]
+- [[AI/GPT-4|💬 GPT]]
+- [[AI/Claude|🧠 Claude]]
+- [[AI/Ollama|🏠 Local]]
 
 ---
 
 #daily-note  <% tp.date.now("dddd") %> week-<% tp.date.now("ww") %> q<% tp.date.now("Q") %>
 
-[[<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
+[[Daily-Notes/<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[index|🏠 Home]] | [[Daily-Notes/<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
