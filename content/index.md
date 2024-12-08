@@ -16,18 +16,18 @@ tags:
 
 <div style="
   text-align: center;
-  margin: 40px 0;
+  margin: 20px 0;
   animation: fadeIn 1s ease-in;
 ">
   <h1 style="
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 5px;
     background: linear-gradient(90deg, #FF7C30, #FFB630);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   ">Welcome to My Digital Garden</h1>
   <p style="
-    font-size: 1.2em;
+    font-size: 1em;
     opacity: 0.8;
   ">A living collection of thoughts, learnings, and daily development logs - training ground for my AI companions</p>
 </div>
@@ -36,17 +36,17 @@ tags:
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  margin: 30px 0;
+  margin: 20px 0;
 ">
 
 <!-- Quick Actions Panel -->
 <div style="
   background: linear-gradient(145deg, rgba(88, 101, 242, 0.1) 0%, rgba(101, 242, 193, 0.05) 100%);
   border-radius: 15px;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid rgba(88, 101, 242, 0.2);
 ">
-  <h3>🎯 Quick Actions</h3>
+  <h3 style="margin-top: 0;">🎯 Quick Actions</h3>
   <div style="
     display: grid;
     grid-template-columns: repeat(2, 1fr);
