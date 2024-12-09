@@ -94,9 +94,12 @@ try {
 - [[30-Projects/32-MultiVerse/The-Multiverse-School|🎓 Classes]]
 
 **Connect with Me**
-- [Twitter](https://twitter.com/yourusername)
-- [GitHub](https://github.com/yourusername)
-- [Website](https://yourwebsite.com)
+- [Twitter](https://twitter.com/thecoffeejesus)
+- [GitHub](https://github.com/ctavolazzi)
+- [TikTok](https://tiktok.com/@thecoffeejesus)
+- [Instagram](https://instagram.com/thecoffeejesus)
+- [Bluesky](https://bsky.app/profile/thecoffeejesus.bsky.social)
+- [Website](https://thecoffeejesus.com)
 
 ## 🤖 AI Workspace
 **Active Prompts**
