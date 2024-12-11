@@ -53,7 +53,7 @@ tags:
     gap: 10px;
     margin-top: 15px;
   ">
-    <a href="Daily-Notes/2024-12-08" style="
+    <a href="Daily-Notes/{{today}}" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -62,7 +62,7 @@ tags:
       color: white;
       transition: all 0.2s ease;
     ">📝 Today's Note</a>
-    <a href="AI News/AI-News-2024-12-08" style="
+    <a href="AI News/AI-News-{{today}}" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -71,7 +71,7 @@ tags:
       color: white;
       transition: all 0.2s ease;
     ">📰 AI News</a>
-    <a href="work-efforts/WE0001-12082024" style="
+    <a href="work-efforts/WE0001-{{todayCompact}}" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -254,4 +254,34 @@ a:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const dateString = today.getFullYear() + '-' +
+        String(today.getMonth() + 1).padStart(2, '0') + '-' +
+        String(today.getDate()).padStart(2, '0');
+    const compactDate = String(today.getMonth() + 1).padStart(2, '0') +
+        String(today.getDate()).padStart(2, '0') +
+        today.getFullYear();
+
+    // Update Daily Note link
+    const dailyNoteLink = document.querySelector('a[href^="Daily-Notes/"]');
+    if (dailyNoteLink) {
+        dailyNoteLink.href = `Daily-Notes/${dateString}`;
+    }
+
+    // Update AI News link
+    const aiNewsLink = document.querySelector('a[href^="AI News/"]');
+    if (aiNewsLink) {
+        aiNewsLink.href = `AI News/AI-News-${dateString}`;
+    }
+
+    // Update Work Log link
+    const workLogLink = document.querySelector('a[href^="work-efforts/"]');
+    if (workLogLink) {
+        workLogLink.href = `work-efforts/WE0001-${compactDate}`;
+    }
+});
+</script>
 
