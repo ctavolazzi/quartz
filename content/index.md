@@ -53,7 +53,7 @@ tags:
     gap: 10px;
     margin-top: 15px;
   ">
-    <a href="/Daily-Notes/{{date:YYYY-MM-DD}}" style="
+    <a href="#" id="daily-note-link" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -62,7 +62,7 @@ tags:
       color: white;
       transition: all 0.2s ease;
     ">📝 Today's Note</a>
-    <a href="/AI News/AI-News-{{date:YYYY-MM-DD}}" style="
+    <a href="#" id="ai-news-link" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -71,7 +71,7 @@ tags:
       color: white;
       transition: all 0.2s ease;
     ">📰 AI News</a>
-    <a href="/work-efforts/WE0001-{{date:MMDDYYYY}}" style="
+    <a href="#" id="work-log-link" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -91,6 +91,40 @@ tags:
     ">🗺️ Knowledge Map</a>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function formatDate(date) {
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const month = months[date.getMonth()];
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${month}-${day}-${year}`;
+    }
+
+    const today = new Date();
+    const formattedDate = formatDate(today);
+
+    // Update Daily Note link
+    const dailyNoteLink = document.getElementById('daily-note-link');
+    if (dailyNoteLink) {
+        dailyNoteLink.href = `/Daily-Notes/${formattedDate}`;
+    }
+
+    // Update AI News link
+    const aiNewsLink = document.getElementById('ai-news-link');
+    if (aiNewsLink) {
+        aiNewsLink.href = `/AI-News/AI-News-${formattedDate}`;
+    }
+
+    // Update Work Log link
+    const workLogLink = document.getElementById('work-log-link');
+    if (workLogLink) {
+        const compactDate = `${String(today.getMonth() + 1).padStart(2, '0')}${String(today.getDate()).padStart(2, '0')}${today.getFullYear()}`;
+        workLogLink.href = `/work-efforts/WE0001-${compactDate}`;
+    }
+});
+</script>
 
 <!-- Garden Areas -->
 <div style="
