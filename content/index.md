@@ -1,9 +1,9 @@
 ---
-title: My Digital Garden 🌱
+title: Home 🌱
 type: index
 status: active
 created: 2024-11-17
-modified: 2024-12-08
+modified: 2024-11-17
 aliases:
   - home
   - start
@@ -12,6 +12,11 @@ tags:
   - "#home"
   - "#index"
   - "#root"
+links:
+  - "[[Work Effort Management]]"
+  - "[[Daily-Notes/]]"
+  - "[[Documentation/]]"
+  - "[[Work-Efforts/]]"
 ---
 
 <div style="
@@ -32,27 +37,36 @@ tags:
   ">A living collection of thoughts, learnings, and daily development logs - training ground for my AI companions</p>
 </div>
 
-<div style="
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 20px 0;
+<a id="daily-note-link" href="#" style="
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 20px auto;
+  display: block;
+  width: fit-content;
 ">
+  Daily Note 🗓
+</a>
 
-<!-- Quick Actions Panel -->
-<div style="
-  background: rgba(20, 22, 36, 0.7);
-  border-radius: 20px;
-  padding: 25px;
-  margin: 20px 0;
-">
-  <h3>🎯 Quick Actions</h3>
-
-  <div class="quick-actions">
-    <a id="daily-note-link" href="#" class="action-button">Daily Note 📝</a>
-    <a id="ai-news-link" href="#" class="action-button">AI News 📰</a>
-  </div>
-</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dailyNoteLink = document.getElementById('daily-note-link');
+    if (dailyNoteLink) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dailyNoteLink.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
+    }
+});
+</script>
 
 <!-- Garden Areas -->
 <div style="
@@ -100,8 +114,6 @@ tags:
   </div>
 </div>
 
-</div>
-
 ## 🤖 Active Projects
 
 - [[30-Projects/31-NovaSystem/NovaSystem|Nova System]]
@@ -109,13 +121,6 @@ tags:
 - [[30-Projects/33-MutinyRobotics/Mutiny-Robotics|Mutiny Robotics]]
 - [[30-Projects/34-KnowledgeGarden/Knowledge-Garden|Knowledge Garden]]
 - [[30-Projects/35-SingularitySurvival/Surviving-the-Singularity|Singularity Survival]]
-
-## 🎯 Quick Tools
-
-- [Content Prompts](Prompts/Content)
-- [Research Tools](Prompts/Research)
-- [Code Gen](Prompts/Code)
-- [Knowledge Base](Knowledge/Index)
 
 ## 📈 Knowledge Hub
 
@@ -239,23 +244,4 @@ a:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-
-    const dailyNoteLink = document.getElementById('daily-note-link');
-    if (dailyNoteLink) {
-        dailyNoteLink.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
-    }
-
-    const aiNewsLink = document.getElementById('ai-news-link');
-    if (aiNewsLink) {
-        aiNewsLink.href = `AI-News/AI-News-${yyyy}-${mm}-${dd}`;
-    }
-});
-</script>
 
