@@ -41,67 +41,16 @@ tags:
 
 <!-- Quick Actions Panel -->
 <div style="
-  background: linear-gradient(145deg, rgba(88, 101, 242, 0.1) 0%, rgba(101, 242, 193, 0.05) 100%);
-  border-radius: 15px;
-  padding: 15px;
-  border: 1px solid rgba(88, 101, 242, 0.2);
+  background: rgba(20, 22, 36, 0.7);
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px 0;
 ">
-  <h3 style="margin-top: 0;">🎯 Quick Actions</h3>
-  <div style="
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 15px;
-  ">
-    <a id="daily-note-link" href="#" style="
-      display: inline-block;
-      padding: 12px 24px;
-      font-size: 1.2em;
-      font-weight: normal;
-      text-align: center;
-      color: #ffffff;  /* White text */
-      background: none;  /* Transparent background */
-      border: 1px solid #ffffff;  /* Thin white border */
-      border-radius: 4px;
-      text-decoration: none;
-      margin-top: 20px;
-      margin-bottom: 30px;
-    ">
-      Daily Note 🗓
-    </a>
-    <a id="ai-news-link" href="#" style="
-      display: inline-block;
-      padding: 12px 24px;
-      font-size: 1.2em;
-      font-weight: normal;
-      text-align: center;
-      color: #ffffff;
-      background: none;
-      border: 1px solid #ffffff;
-      border-radius: 4px;
-      text-decoration: none;
-      margin-left: 10px;
-    ">
-      AI News 📰
-    </a>
-    <a href="[[work-efforts/WE0001-{{date:MMDDYYYY}}]]" style="
-      background: rgba(88, 101, 242, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      transition: all 0.2s ease;
-    ">💼 Work Log</a>
-    <a href="Knowledge/Map" style="
-      background: rgba(88, 101, 242, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      transition: all 0.2s ease;
-    ">🗺️ Knowledge Map</a>
+  <h3>🎯 Quick Actions</h3>
+
+  <div class="quick-actions">
+    <a id="daily-note-link" href="#" class="action-button">Daily Note 📝</a>
+    <a id="ai-news-link" href="#" class="action-button">AI News 📰</a>
   </div>
 </div>
 
@@ -266,35 +215,47 @@ a:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.action-button {
+  background: rgba(30, 32, 46, 0.7);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 </style>
 
 <script>
-function setDailyNoteLink() {
-    const link = document.getElementById('daily-note-link');
-    if (link) {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        link.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
-        link.innerText = `Daily Note 🗓`;
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    const dailyNoteLink = document.getElementById('daily-note-link');
+    if (dailyNoteLink) {
+        dailyNoteLink.href = `Daily-Notes/${yyyy}-${mm}-${dd}`;
     }
 
     const aiNewsLink = document.getElementById('ai-news-link');
     if (aiNewsLink) {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
         aiNewsLink.href = `AI-News/AI-News-${yyyy}-${mm}-${dd}`;
-        aiNewsLink.innerText = `AI News 📰`;
     }
-}
-
-// Call it immediately
-setDailyNoteLink();
-
-// Call it on popstate (browser back/forward)
-window.addEventListener('popstate', setDailyNoteLink);
+});
 </script>
 

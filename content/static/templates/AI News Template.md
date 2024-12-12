@@ -7,7 +7,7 @@ tags:
   - week-<% tp.date.now("ww") %>
   - q<% tp.date.now("Q") %>
 work_efforts:
-  - "[[WE0001-1119-2024]]"
+  - '[[Work-Efforts/WE<% tp.date.now("0001-MMDDYYYY") %>]]'
 related_notes: '[[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]]'
 related_videos:
   - "[[Video1]]"
