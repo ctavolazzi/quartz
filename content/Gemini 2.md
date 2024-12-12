@@ -50,3 +50,4 @@ Citations:
 [8] https://www.cnet.com/tech/services-and-software/gemini-2-0-and-project-astra-make-googles-ai-your-know-it-all-assistant/
 [9] https://www.bigdatawire.com/2024/12/12/googles-gemini-2-0-paving-the-way-for-the-agentic-era/
 [10] https://www.technologyreview.com/2024/12/11/1108493/googles-new-project-astra-could-be-generative-ais-killer-app/
+

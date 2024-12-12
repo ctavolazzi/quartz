@@ -53,7 +53,7 @@ tags:
     gap: 10px;
     margin-top: 15px;
   ">
-    <a href="/Daily-Notes/{{date:YYYY-MM-DD}}" style="
+    <a href="[[{{date:YYYY-MM-DD}}]]" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -62,7 +62,7 @@ tags:
       color: white;
       transition: all 0.2s ease;
     ">📝 Today's Note</a>
-    <a href="/AI-News/AI-News-{{date:YYYY-MM-DD}}" style="
+    <a href="[[AI-News/AI-News-{{date:YYYY-MM-DD}}]]" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -71,7 +71,7 @@ tags:
       color: white;
       transition: all 0.2s ease;
     ">📰 AI News</a>
-    <a href="/work-efforts/WE0001-{{date:MMDDYYYY}}" style="
+    <a href="[[work-efforts/WE0001-{{date:MMDDYYYY}}]]" style="
       background: rgba(88, 101, 242, 0.1);
       padding: 15px;
       border-radius: 10px;
