@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Autoseed - AI-Powered Home Farming</title>
+                <style>
+        :root {
+            --primary: #2F855A;
+            --background: #FFFFFF;
+            --text: #2D3748;
+            --accent: #C6F6D5;
+            --hover: #246B48;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        header p {
+            text-align: center;
+            margin: 1rem 0 0;
+            font-size: 1.2rem;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            background: var(--accent);
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .hero h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            color: var(--text);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 6px;
+            transition: transform 0.2s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-2px);
+        }
+
+        .stat h3 {
+            color: var(--primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .stat p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .videos {
+            margin: 4rem 0;
+        }
+
+        .videos h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .benefits {
+            margin: 4rem 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .timeline {
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline-item {
+            background: var(--accent);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        .roi-analysis, .technical-specs, .faq {
+            margin: 4rem 0;
+        }
+
+        .roi-grid, .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .roi-card, .spec-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .roi-card h3, .spec-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .roi-card ul, .spec-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .roi-card li, .spec-card li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .roi-card li:before, .spec-card li:before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .faq-item h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-card, .spec-card, .faq-item {
+                padding: 1.5rem;
+            }
+        }
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--accent);
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .cta-note {
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        .button:hover {
+            background-color: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        .button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Johnny Autoseed</h1>
+            <p>Revolutionizing Home Farming with AI and Robotics</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Transform Your Lawn into an Automated Garden</h2>
+            <p>Johnny Autoseed combines advanced robotics and AI to create a fully automated home farming system, from planting to harvesting and meal preparation.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>Sustainable</h3>
+                    <p>Zero carbon footprint for your produce</p>
+                </div>
+                <div class="stat">
+                    <h3>Smart</h3>
+                    <p>AI-optimized growing cycles</p>
+                </div>
+                <div class="stat">
+                    <h3>Efficient</h3>
+                    <p>Up to 70% water savings vs traditional gardening</p>
+                </div>
+                <div class="stat">
+                    <h3>Scalable</h3>
+                    <p>$5k investment feeds a family of 5 yearly, with 60+ families served per Mobile Aloha unit</p>
+                </div>
+                <div class="stat">
+                    <h3>Impact</h3>
+                    <p>Robots transition to education programs after ROI period, teaching next-gen sustainable farming</p>
+                </div>
+                <div class="stat">
+                    <h3>ROI</h3>
+                    <p>Each garden plot feeds a family while paying for itself in 18 months through grocery savings</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Mobile Aloha Robot</h3>
+                <p>Advanced robotic system capable of harvesting and food preparation.</p>
+                <p>Each Mobile Aloha unit can service up to 12 FarmBot garden plots daily, managing 60+ plots per week with 24/7 operation capability.</p>
+                <p>Cost: $32,000</p>
+                <a href="https://mobile-aloha.github.io/" class="button" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <h3>FarmBot Integration</h3>
+                <p>Automated gardening system with computer vision and precision control.</p>
+                <p>Each FarmBot plot yields approximately 1 cup of vegetables per day per square meter, providing enough produce for a family of 4-6 from a single plot.</p>
+                <p>Cost: $5,000</p>
+                <a href="https://farm.bot/" class="button" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </div>
+        </section>
+
+        <section class="videos">
+            <h2>See It In Action</h2>
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/yHy8rJpbxH4"
+                    title="FarmBot Demo Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-container">
+                <iframe
+                    src="https://mobile-aloha.github.io/resources/mobile-aloha.mp4"
+                    title="Mobile Aloha Demo Video"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <h2>Why Johnny Autoseed?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Food Security</h3>
+                    <p>Ensure your family's access to fresh, organic produce year-round, regardless of market conditions or supply chain disruptions.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Cost Savings</h3>
+                    <p>ROI analysis shows potential savings of $3,000-5,000 annually on grocery bills for a family of four.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Time Saving</h3>
+                    <p>Fully automated system saves 10-15 hours weekly compared to traditional gardening methods.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Health & Quality</h3>
+                    <p>Fresh, pesticide-free produce harvested at peak ripeness for maximum nutritional value and flavor.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Environmental Impact</h3>
+                    <p>Reduce your carbon footprint with zero transportation emissions and optimal resource usage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <h2>Development Timeline</h2>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <h3>2024</h3>
+                    <p>Initial prototype development and testing</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2025</h3>
+                    <p>Beta testing with select households</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2026</h3>
+                    <p>Public launch and deployment</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2027</h3>
+                    <p>Education program rollout and first generation robot recycling begins</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="roi-analysis">
+            <h2>Return on Investment Analysis</h2>
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <h3>FarmBot ROI</h3>
+                    <p>Based on FarmBot's analysis for their MAX system:</p>
+                    <ul>
+                        <li>Yields 1 cup/day per square meter</li>
+                        <li>Monthly savings vs. store-bought: $615</li>
+                        <li>Annual savings: $7,380</li>
+                        <li>Initial investment: $5,000</li>
+                        <li>ROI period: ~8 months</li>
+                    </ul>
+                </div>
+                <div class="roi-card">
+                    <h3>Mobile Aloha ROI</h3>
+                    <p>Estimated labor savings and efficiency gains:</p>
+                    <ul>
+                        <li>Services up to 12 garden plots daily</li>
+                        <li>Manages 60+ plots per week with 24/7 operation</li>
+                        <li>Annual labor cost savings: $26,000 (at $25/hr)</li>
+                        <li>Initial investment: $32,000</li>
+                        <li>ROI period: ~15 months</li>
+                    </ul>
+                </div>
+                <div class="roi-card">
+                    <h3>Combined System Benefits</h3>
+                    <ul>
+                        <li>Total annual savings: $33,380</li>
+                        <li>Total initial investment: $37,000</li>
+                        <li>Estimated ROI period: 13-15 months</li>
+                        <li>Additional benefits from automation and scaling</li>
+                        <li>Reduced carbon footprint and transportation costs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="technical-specs">
+            <h2>Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3>FarmBot System</h3>
+                    <ul>
+                        <li>Coverage area: Up to 6m x 18m</li>
+                        <li>Precision: 2mm positioning accuracy</li>
+                        <li>Water efficiency: Up to 70% savings vs traditional</li>
+                        <li>Power usage: ~100W during operation</li>
+                        <li>Internet connectivity: WiFi required</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Mobile Aloha Robot</h3>
+                    <ul>
+                        <li>Dual-arm manipulation system</li>
+                        <li>Advanced computer vision integration</li>
+                        <li>Machine learning capabilities for task adaptation</li>
+                        <li>Safety-first design with force sensors</li>
+                        <li>Mobile base for flexible positioning</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Integration Features</h3>
+                    <ul>
+                        <li>Unified control system</li>
+                        <li>AI-powered scheduling</li>
+                        <li>Remote monitoring and control</li>
+                        <li>Automated maintenance alerts</li>
+                        <li>Climate-responsive operations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What can I grow with Johnny Autoseed?</h3>
+                    <p>The system is optimized for most vegetables, herbs, and small fruits. Common crops include tomatoes, lettuce, peppers, herbs, and root vegetables. The AI system helps optimize growing conditions for each crop type.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much maintenance is required?</h3>
+                    <p>The system is largely autonomous but requires about 30 minutes of monthly maintenance for tasks like seed refilling and basic cleaning. The AI system monitors performance and alerts you when attention is needed.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the energy consumption?</h3>
+                    <p>Average monthly electricity usage is approximately 100-150 kWh, costing $12-18 in most areas. Solar integration options are available for off-grid operation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can it operate year-round?</h3>
+                    <p>Yes, with proper climate control setup. The system can be integrated with greenhouse environments for year-round growing in any climate.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the typical yield?</h3>
+                    <p>Based on FarmBot data, expect approximately 1 cup of vegetables per day per square meter. A full system can provide enough vegetables for a family of 4-6 people.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is technical expertise required?</h3>
+                    <p>While the system is designed to be user-friendly, basic comfort with technology is helpful. We provide full setup support and ongoing technical assistance.</p>
+                </div>
+            </div>
+        </section>
+            <h2>Join the Future of Home Farming</h2>
+            <p>Expected Launch: 2026</p>
+            <p>Initial System Investment: $37,000</p>
+            <p>Estimated Annual Savings: $3,000-5,000</p>
+            <p>Early adopter incentives available</p>
+            <a href="mailto:info@survivingthesingularity.com" class="button">Contact Us</a>
+            <p class="cta-note">Currently accepting applications for beta testing program</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 AIECO, LLC. All rights reserved.</p>
+            <p>Contact: info@survivingthesingularity.com</p>
+        </div>
+    </footer>
+</body>
+</html>
