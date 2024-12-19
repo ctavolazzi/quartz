@@ -1,4 +1,5 @@
----
+module.exports = async function() {
+    const template = `---
 title: '<% tp.date.now("MMMM D, YYYY") %> • AI News'
 date: '<% tp.date.now("YYYY-MM-DD") %>'
 type: ai-news
@@ -16,10 +17,7 @@ related_notes: '[[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]]'
 # 🤖 AI News for <% tp.date.now("MMMM D, YYYY") %>
 
 ## 📈 Today's Focus
-<%*
-let data = await tp.user.setupDailyAINews();
-tR += data;
-%>
+*<% await tp.user.templateTest().then(data => data.dayContent) %>*
 
 ## 📰 Top Stories
 
@@ -62,10 +60,18 @@ tR += data;
 - **Key Trends:** [Brief observation]
 - **Sources Covered:** [List]
 - **Geographic Focus:** [Regions]
-- **Priority Area:** <%* await tp.user.setupDailyAINews() %>
+- **Priority Area:** <% await tp.user.templateTest().then(data => data.priority) %>
 
 ---
 
 #ai-news #daily #week-<% tp.date.now("ww") %> #q<% tp.date.now("Q") %>
 
-[[AI News/AI-News-<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[AI News/index|📚 Archive]] | [[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]] | [[AI News/AI-News-<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]
+[[AI News/AI-News-<% tp.date.yesterday("YYYY-MM-DD") %>|⬅️ Previous Day]] | [[AI News/index|📚 Archive]] | [[<% tp.date.now("YYYY-MM-DD") %>|📝 Daily Note]] | [[AI News/AI-News-<% tp.date.tomorrow("YYYY-MM-DD") %>|Next Day ➡️]]`;
+
+    try {
+        await app.vault.create('static/templates/AI News Template.md', template);
+        return '✅ AI News template created successfully';
+    } catch (error) {
+        return `❌ Error creating AI News template: ${error.message}`;
+    }
+};

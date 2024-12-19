@@ -9,7 +9,7 @@ Johnny Autoseed empowers individuals and communities to take control of their fo
 
 ## Product Line
 
-### Johnny Mini [$200-400]
+### Johnny Mini [$45-500]
 - Fun, educational entry point
 - 3D-printed robot arm for basic tasks
 - Perfect for kids, families, and beginners
