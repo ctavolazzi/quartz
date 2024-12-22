@@ -5,9 +5,9 @@ tags:
   - daily-notes
 ai-news: '[[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>]]'
 ai_convos:
-  - '[[AI Chats/Chat<% tp.date.now("0001-MMDDYYYY") %>]]'
+  - '[[AI Chats/Chat0001-<% tp.date.now("MMDDYYYY") %>]]'
 work_efforts:
-  - '[[Work-Efforts/WE<% tp.date.now("0001-MMDDYYYY") %>]]'
+  - '[[Work-Efforts/WE0001-<% tp.date.now("MMDDYYYY") %>]]'
 related_notes:
 newsletter: '[[Newsletters/NovaBrew-<% tp.date.now("YYYY-MM-DD") %>]]'
 ---
