@@ -11,7 +11,6 @@ work_efforts:
 related_notes:
 newsletter: '[[Newsletters/NovaBrew-<% tp.date.now("YYYY-MM-DD") %>]]'
 ---
-<% await tp.user.createDailyFiles() %>
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 > Week <% tp.date.now("ww") %> of <% tp.date.now("YYYY") %> • Q<% tp.date.now("Q") %>
 
@@ -43,9 +42,13 @@ try {
 - 🎯 **Days until EOY:** <% moment(tp.date.now("YYYY") + "-12-31").diff(moment(), 'days') %>
 - 🔄 **Created at:** <% tp.file.creation_date("h:mm A") %>
 
+#### Auxiliary Files:
+<% await tp.user.createDailyFiles() %>
 
-# 📰 AI News
 [[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>|Today's AI News]]
+[[Work-Efforts/WE0001-<% tp.date.now("MMDDYYYY") %>|Today's Work Effort]]
+[[Newsletters/NovaBrew-<% tp.date.now("YYYY-MM-DD") %>|Today's Newsletter]]
+[[AI Chats/Chat0001-<% tp.date.now("MMDDYYYY") %>|Today's AI Chat]]
 
 ---
 
