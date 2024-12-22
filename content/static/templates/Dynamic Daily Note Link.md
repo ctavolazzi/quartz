@@ -16,6 +16,8 @@ I guess you never really are truly "ready" you just do your best when the moment
 
 ### And boy, did the moment hit.
 
+
+
 ---
 
 Sat, 11/16/2024, 03:15
