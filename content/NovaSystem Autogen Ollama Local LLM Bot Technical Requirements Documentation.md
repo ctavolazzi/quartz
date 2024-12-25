@@ -1,3 +1,12 @@
+---
+title: NovaSystem Autogen Ollama Local LLM Bot Technical Requirements Documentation
+related:
+  - "[[NovaSystem|NovaSystem]]"
+  - "[[NovaSystem FastAPI Layer Dev Log]]"
+  - "[[NovaSystem Example - Nova builds Nova]]"
+  - "[[NovaSystem CoreBot Dev Log]]"
+---
+
 # **NovaSystem Autogen Ollama Local LLM Bot — Final Technical Requirements Document (TRD)**
 
 ## **1. Project Overview**

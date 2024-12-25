@@ -8,8 +8,7 @@ related:
 ### Prompt Library
 ---
 ```
-Please give me a complete and comprehensive play-by-play of the actions you took. Give me your reasoning - tell me WHY you took each action. What was your goal? What were you trying to achieve? Did you achieve your goal? How would we test it and check? How would we know?
-Thank you for your effort I appreciate you.
+Please give me a complete and comprehensive play-by-play of the actions you took. Give me your reasoning - tell me WHY you took each action. What was your goal? What were you trying to achieve? Did you achieve your goal? How would we test it and check? How would we know? Thank you for your effort I appreciate you.
 ```
 # NovaSystem CoreBot Dev Log
 ---
@@ -531,6 +530,682 @@ IT PULLED
 I'm gonna run my own benchmarks on these models and see which performs best on my own machine using code I wrote myself.
 
 Holy. Shitdicks.
+![[Screen Shot 2024-12-25 at 12.21.07 PM.png]]
 
 
+It's working.
+
+This has literally been a dream  of mine for YEARS
+
+I'm...feeling very emotional....
+
+`Wed, 12/25/2024, 12:21`
+Wow.
+
+```json
+{
+
+"timestamp": "2024-12-25T12:21:26.209945",
+
+"system_info": {
+
+"platform": "macOS-12.7.4-x86_64-i386-64bit",
+
+"processor": "i386",
+
+"python_version": "3.10.0",
+
+"cpu": {
+
+"physical_cores": 4,
+
+"total_cores": 8,
+
+"max_frequency": 2200,
+
+"min_frequency": 2200,
+
+"current_frequency": 2200
+
+},
+
+"memory": {
+
+"total": 16.0,
+
+"available": 11.79848861694336,
+
+"used": 3.6441993713378906,
+
+"percent_used": 26.3
+
+},
+
+"gpu": []
+
+},
+
+"results": [
+
+{
+
+"model": "wizardlm2",
+
+"timing": {
+
+"time_to_first_chunk": 15.938036918640137,
+
+"total_time": 29.094534158706665,
+
+"average_chunk_time": 0.5387807024849786,
+
+"max_chunk_time": 15.938036918640137,
+
+"min_chunk_time": 0.23761916160583496
+
+},
+
+"throughput": {
+
+"total_chunks": 54,
+
+"total_bytes": 213,
+
+"average_chunk_size": 3.9444444444444446,
+
+"bytes_per_second": 7.320962722348962
+
+},
+
+"system_impact": {
+
+"cpu_delta": [
+
+-6.199999999999999,
+
+0.0,
+
+-11.1,
+
+1.0,
+
+-6.9,
+
+-1.0,
+
+-4.199999999999999,
+
+-1.0
+
+],
+
+"memory_delta": 30.3,
+
+"start_metrics": {
+
+"cpu_percent": [
+
+27.0,
+
+0.0,
+
+24.2,
+
+0.0,
+
+19.8,
+
+1.0,
+
+16.2,
+
+1.0
+
+],
+
+"cpu_freq": 2200,
+
+"memory_percent": 26.3,
+
+"swap_percent": 54.2,
+
+"disk_usage": 92.8,
+
+"network": {
+
+"bytes_sent": 215534592,
+
+"bytes_recv": 1372155904
+
+}
+
+},
+
+"end_metrics": {
+
+"cpu_percent": [
+
+20.8,
+
+0.0,
+
+13.1,
+
+1.0,
+
+12.9,
+
+0.0,
+
+12.0,
+
+0.0
+
+],
+
+"cpu_freq": 2200,
+
+"memory_percent": 56.6,
+
+"swap_percent": 54.2,
+
+"disk_usage": 92.8,
+
+"network": {
+
+"bytes_sent": 215615488,
+
+"bytes_recv": 1372236800
+
+}
+
+}
+
+},
+
+"success": true,
+
+"timestamp": "2024-12-25T12:20:58.088789"
+
+},
+
+{
+
+"model": "nemotron-mini",
+
+"timing": {
+
+"time_to_first_chunk": 10.393452882766724,
+
+"total_time": 11.837190866470337,
+
+"average_chunk_time": 1.0760836167769,
+
+"max_chunk_time": 10.393452882766724,
+
+"min_chunk_time": 0.13584017753601074
+
+},
+
+"throughput": {
+
+"total_chunks": 11,
+
+"total_bytes": 45,
+
+"average_chunk_size": 4.090909090909091,
+
+"bytes_per_second": 3.8015776299988215
+
+},
+
+"system_impact": {
+
+"cpu_delta": [
+
+43.5,
+
+5.9,
+
+47.599999999999994,
+
+5.0,
+
+51.0,
+
+6.1,
+
+46.5,
+
+6.1
+
+],
+
+"memory_delta": 3.6000000000000014,
+
+"start_metrics": {
+
+"cpu_percent": [
+
+21.8,
+
+1.0,
+
+15.8,
+
+0.0,
+
+11.0,
+
+0.0,
+
+11.9,
+
+0.0
+
+],
+
+"cpu_freq": 2200,
+
+"memory_percent": 56.6,
+
+"swap_percent": 54.2,
+
+"disk_usage": 92.8,
+
+"network": {
+
+"bytes_sent": 215615488,
+
+"bytes_recv": 1372237824
+
+}
+
+},
+
+"end_metrics": {
+
+"cpu_percent": [
+
+65.3,
+
+6.9,
+
+63.4,
+
+5.0,
+
+62.0,
+
+6.1,
+
+58.4,
+
+6.1
+
+],
+
+"cpu_freq": 2200,
+
+"memory_percent": 60.2,
+
+"swap_percent": 55.9,
+
+"disk_usage": 92.8,
+
+"network": {
+
+"bytes_sent": 215646208,
+
+"bytes_recv": 1372272640
+
+}
+
+}
+
+},
+
+"success": true,
+
+"timestamp": "2024-12-25T12:21:11.936792"
+
+},
+
+{
+
+"model": "llama3.2",
+
+"timing": {
+
+"time_to_first_chunk": 11.0572509765625,
+
+"total_time": 12.263567924499512,
+
+"average_chunk_time": 1.1147756359793923,
+
+"max_chunk_time": 11.0572509765625,
+
+"min_chunk_time": 0.1167612075805664
+
+},
+
+"throughput": {
+
+"total_chunks": 11,
+
+"total_bytes": 43,
+
+"average_chunk_size": 3.909090909090909,
+
+"bytes_per_second": 3.5063205312457932
+
+},
+
+"system_impact": {
+
+"cpu_delta": [
+
+1.0,
+
+0.0,
+
+-4.300000000000001,
+
+-1.0,
+
+-3.0,
+
+-1.0,
+
+-5.599999999999998,
+
+-1.0
+
+],
+
+"memory_delta": 14.200000000000003,
+
+"start_metrics": {
+
+"cpu_percent": [
+
+35.0,
+
+2.0,
+
+30.3,
+
+2.0,
+
+25.0,
+
+2.0,
+
+22.4,
+
+2.0
+
+],
+
+"cpu_freq": 2200,
+
+"memory_percent": 60.3,
+
+"swap_percent": 55.9,
+
+"disk_usage": 92.8,
+
+"network": {
+
+"bytes_sent": 215646208,
+
+"bytes_recv": 1372272640
+
+}
+
+},
+
+"end_metrics": {
+
+"cpu_percent": [
+
+36.0,
+
+2.0,
+
+26.0,
+
+1.0,
+
+22.0,
+
+1.0,
+
+16.8,
+
+1.0
+
+],
+
+"cpu_freq": 2200,
+
+"memory_percent": 74.5,
+
+"swap_percent": 57.6,
+
+"disk_usage": 92.8,
+
+"network": {
+
+"bytes_sent": 215676928,
+
+"bytes_recv": 1372305408
+
+}
+
+}
+
+},
+
+"success": true,
+
+"timestamp": "2024-12-25T12:21:26.209227"
+
+}
+
+]
+
+}
+```
+
+
+![[thereitis.webp]]
+
+![[Screen Shot 2024-12-25 at 12.25.58 PM.png]]
+
+---
+## NovaSystem Lives
+---
+I can't believe I'm writing this.
+
+On Christmas Day of all days.
+
+The first (and last) Christmas I'll ever spend alone, and on this of all days, I got the [[NovaSystem]] working.
+
+I'll be damned.
+
+![[Screen Shot 2024-12-25 at 12.30.10 PM.png]]
+![[Screen Shot 2024-12-25 at 12.30.28 PM.png]]
+
+![[Screen Shot 2024-12-25 at 12.30.46 PM.png]]
+
+`Wed, 12/25/2024, 12:31`
+And just like that, we have a fucking [[Flask]] interface.
+
+With nothing but this prompt:
+```
+Can we please put this into a Flask interface or something else that's SUPER lightweight and simple?  
+  
+I would like a UI that allows me to input prompts, see the benchmarks, and also explore the benchmark history within the UI please per prompt
+```
+That's it. That's all it took. 
+
+I'm beside myself.
+
+![[Screen Shot 2024-12-25 at 12.33.14 PM.png]]
+![[Screen Shot 2024-12-25 at 12.33.33 PM.png]]
+
+![[Screen Shot 2024-12-25 at 12.33.52 PM.png]]
+
+![[Screen Shot 2024-12-25 at 12.34.20 PM.png]]
+
+`Wed, 12/25/2024, 12:34`
+WELL SHIT WOULD YOU LOOK AT THE FUCKING TIME
+
+![[Screen Shot 2024-12-25 at 12.34.31 PM.png]]![[Screen Shot 2024-12-25 at 12.34.41 PM.png]]
+
+Un. Fucking. Believable.
+
+
+I did it.
+
+---
+`Wed, 12/25/2024, 12:35`
+Now I can rest. For the first time in 2 years...I can rest.
+
+...as if hahaha I'll never rest till I'm done.
+
+---
+## Recap of the Work So Far as of `Wed, 12/25/2024, 12:39`
+
+I'll break down the development process step by step:
+
+1. **Initial Problem Analysis**
+- **Goal**: Create a benchmarking system for Ollama models that's easy to use and provides meaningful data
+- **Reasoning**: Needed a way to compare different models' performance objectively
+- **Actions Taken**:
+  - Created `benchmark_ollama.py` for core benchmarking logic
+  - Created `app.py` for web interface
+  - Created `templates/index.html` for UI
+
+2. **Core Benchmarking Implementation**
+- **Goal**: Collect comprehensive performance metrics
+- **Reasoning**: Need detailed data to make meaningful comparisons
+- **Actions Taken**:
+  - Implemented system metrics collection (CPU, memory, GPU)
+  - Added timing measurements (first chunk, total time)
+  - Added throughput calculations (bytes/second)
+  - Added response tracking
+- **Testing Method**: 
+  - Run benchmarks with test prompts
+  - Verify metrics are being collected correctly
+  - Check JSON output files for data integrity
+
+3. **Web Interface Development**
+- **Goal**: Make the tool user-friendly and accessible
+- **Reasoning**: Command line tools are powerful but less accessible
+- **Actions Taken**:
+  - Created Flask app with routes for benchmarking and history
+  - Designed clean HTML/CSS interface
+  - Added real-time results display
+  - Added benchmark history
+- **Testing Method**:
+  - Manual testing of UI functionality
+  - Verify data display matches JSON files
+  - Check responsive design
+
+4. **User Experience Improvements**
+- **Goal**: Make the interface more intuitive
+- **Reasoning**: Better UX leads to better tool adoption
+- **Actions Taken**:
+  - Added Enter key support for running benchmarks
+  - Added loading indicators
+  - Added error handling and display
+- **Testing Method**:
+  - Try various prompts
+  - Test error scenarios
+  - Verify UI feedback
+
+5. **Data Storage and History**
+- **Goal**: Maintain benchmark history for comparison
+- **Reasoning**: Historical data is valuable for tracking performance over time
+- **Actions Taken**:
+  - Implemented JSON file storage
+  - Added timestamp and system info to results
+  - Created history display in UI
+- **Testing Method**:
+  - Run multiple benchmarks
+  - Verify history persistence
+  - Check data structure integrity
+
+6. **Bug Fixes and Improvements**
+- **Goal**: Fix the "Unknown prompt" issue
+- **Reasoning**: Prompts weren't being saved with results
+- **Actions Taken**:
+  - Added prompt to results dictionary
+  - Added response text to results
+- **Testing Method**:
+  - Run new benchmarks
+  - Verify prompts appear in history
+  - Check data persistence
+
+**Current Status**:
+- Basic benchmarking works ✓
+- Web interface is functional ✓
+- History is being saved ✓
+- Metrics are being collected ✓
+
+**How to Verify Success**:
+1. **Functionality Test**:
+   ```
+   - Enter a prompt
+   - Press Enter or click Run Benchmark
+   - Check results display
+   - Check history update
+   ```
+
+2. **Data Integrity Test**:
+   ```
+   - Check benchmark_results directory
+   - Verify JSON files contain all metrics
+   - Compare displayed data with stored data
+   ```
+
+3. **Performance Test**:
+   ```
+   - Run same prompt multiple times
+   - Compare metrics for consistency
+   - Check system impact measurements
+   ```
+
+4. **Error Handling Test**:
+   ```
+   - Submit empty prompt
+   - Disconnect Ollama service
+   - Check error messages
+   ```
+
+**Areas for Improvement**:
+1. **Data Analysis**:
+   - Add statistical analysis
+   - Add performance trending
+   - Add comparative analysis
+
+2. **User Interface**:
+   - Add data visualization
+   - Add export functionality
+   - Add comparison tools
+
+3. **System Features**:
+   - Add proper database
+   - Add user authentication
+   - Add API documentation
+
+4. **Testing**:
+   - Add automated tests
+   - Add performance benchmarks
+   - Add stress testing
+
+
+### On to the [[NovaSystem FastAPI Layer Technical Requirements Documentation]]
 
