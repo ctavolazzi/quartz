@@ -8,7 +8,7 @@ ai_convos:
   - '[[AI Chats/Chat0001-<% tp.date.now("MMDDYYYY") %>]]'
 work_efforts:
   - '[[Work-Efforts/WE0001-<% tp.date.now("MMDDYYYY") %>]]'
-related_notes:
+related_notes: "[[Prompt_Library]]"
 newsletter: '[[Newsletters/NovaBrew-<% tp.date.now("YYYY-MM-DD") %>]]'
 ---
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
@@ -45,6 +45,7 @@ try {
 #### Auxiliary Files:
 <% await tp.user.createDailyFiles() %>
 
+[[Prompt_Library]]
 [[AI News/AI-News-<% tp.date.now("YYYY-MM-DD") %>|Today's AI News]]
 [[Work-Efforts/WE0001-<% tp.date.now("MMDDYYYY") %>|Today's Work Effort]]
 [[Newsletters/NovaBrew-<% tp.date.now("YYYY-MM-DD") %>|Today's Newsletter]]
