@@ -1,0 +1,41 @@
+---
+title: Yasser meeting
+---
+- Architect
+- Taught at university teaching architecture design
+- Passionate about building stuff digitally
+- Python dev
+- NFT artist
+- Last year he gave a talk about the future of architecture and he's doing an update in May
+- Looking for insight into how to use AI to do stuff
+- He's willing to enroll into the Multiverse and wants to learn from us in the Multiverse
+- Wants to use this as a start for his architecture knowledge
+- Wants my guidance and wants to know where to search and how to search for stuff
+- Not a designer - studied architecture but it's not his passion
+- The technical details of apply ing everything is what he's passionate about
+- Higher scope than just the technical design part of architecture.
+- Uses Revit Macro
+- Has created a web app with ChatGPT
+- Has multiple chats and is creating apps with ChatGPT - exploring and testing the capacity of ChatGPT to answer
+- Used Claude - had subscriptions to all the major ones, uses Flux for images, familiar with Node.js
+- Works for a company that does MAP on big projects.
+- He's in Germany
+- Wants to develop a plan to help him create his two seminars and meet his goals with AI
+- Feels lonely and wants to connect with people.
+- He's interested in the Multiverse
+- Prefers a later time and wants to have access to the recordings and be self-paced
+- Working from home and doing this
+- Looking at the next 7 months to dedicate time to learning AI from the Multiverse
+- Saw the Johnny Autoseed project
+- Originally from Syria - wanted to put the Johnny Autoseed ag project into place in Syria
+- Wants to create an audience
+- Wants to support me. Following me for months
+- Afraid that he would be overwhelmed
+- The company he works for is investing in AI and has bought Microsoft Azure and is creating a database to feel the company AI data so that it gets trained on it
+- Why reinvent the wheel, when you can just wait 6 months and build and learn and watch and explore
+- We're like the Star Trek resistance forces - the Rebels
+- He's trying to look for people like him with similar values
+- He's an advocate for housing for everyone. Everyone needs homes.
+- Thinking about 3d printing and modular architecture
+- Looking at the political aspect of it all as well
+- Met resistance from the group and his people didn't want to talk about AI and he's wanting community and camaraderie
