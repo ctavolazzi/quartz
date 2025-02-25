@@ -1,0 +1,52 @@
+/* Styles for ASCII Art Banner Component */
+.ascii-art-banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.2;
+  font-size: 0.7rem;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 100%;
+  color: var(--secondary);
+  animation: colorPulse 8s infinite;
+}
+
+@media (min-width: 768px) {
+  .ascii-art {
+    font-size: 0.9rem;
+  }
+}
+
+.progress-container {
+  width: 100%;
+  background-color: var(--lightgray);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 10px;
+  background: linear-gradient(90deg, var(--secondary), var(--tertiary));
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
+
+/* Animation for color change */
+@keyframes colorPulse {
+  0% {
+    color: var(--secondary);
+  }
+  50% {
+    color: var(--tertiary);
+  }
+  100% {
+    color: var(--secondary);
+  }
+}

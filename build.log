@@ -1,0 +1,21 @@
+
+> @jackyzha0/quartz@4.4.0 quartz
+> ./quartz/bootstrap-cli.mjs build --serve
+
+
+ Quartz v4.4.0 
+
+Cleaned output directory `public` in 20ms
+Found 7 input files from `content` in 19ms
+[2K[1GParsed 7 Markdown files in 343ms
+Filtered out 0 files in 71μs
+[2K[1GEmitted 32 files to `public` in 251ms
+Done processing 7 files in 635ms
+Started a Quartz server listening at http://localhost:8080
+hint: exit with ctrl+c
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at handleBuild (file:///Users/ctavolazzi/Code/quartz/quartz/cli/handlers.js:417:12)
+    at Object.handler (file:///Users/ctavolazzi/Code/quartz/quartz/bootstrap-cli.mjs:36:5)

@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import * as DigitalGarden from "./quartz/components/digitalGarden"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -27,7 +28,23 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({
+      mapFn: (node) => {
+        // Add "Daily Briefings" folder at the top level
+        if (node.name === "daily" && !node.file) {
+          node.displayName = "📆 Daily Briefings"
+        }
+        return node
+      },
+      sortFn: (a, b) => {
+        // Special sorting to prioritize Daily Briefings
+        if (a.displayName === "📆 Daily Briefings") return -1
+        if (b.displayName === "📆 Daily Briefings") return 1
+
+        // Default sorting for other items
+        return a.displayName.localeCompare(b.displayName)
+      }
+    })),
   ],
   right: [
     Component.Graph(),
@@ -44,7 +61,64 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({
+      mapFn: (node) => {
+        // Add "Daily Briefings" folder at the top level
+        if (node.name === "daily" && !node.file) {
+          node.displayName = "📆 Daily Briefings"
+        }
+        return node
+      },
+      sortFn: (a, b) => {
+        // Special sorting to prioritize Daily Briefings
+        if (a.displayName === "📆 Daily Briefings") return -1
+        if (b.displayName === "📆 Daily Briefings") return 1
+
+        // Default sorting for other items
+        return a.displayName.localeCompare(b.displayName)
+      }
+    })),
   ],
   right: [],
+}
+
+// Special layout for the homepage
+export const indexPageLayout: PageLayout = {
+  beforeBody: [
+    DigitalGarden.AsciiArtBanner(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    Component.TagList(),
+    DigitalGarden.TestComponent(),
+    DigitalGarden.Highlights(),
+    DigitalGarden.GardenGame(),
+  ],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Search(),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer({
+      mapFn: (node) => {
+        // Add "Daily Briefings" folder at the top level
+        if (node.name === "daily" && !node.file) {
+          node.displayName = "📆 Daily Briefings"
+        }
+        return node
+      },
+      sortFn: (a, b) => {
+        // Special sorting to prioritize Daily Briefings
+        if (a.displayName === "📆 Daily Briefings") return -1
+        if (b.displayName === "📆 Daily Briefings") return 1
+
+        // Default sorting for other items
+        return a.displayName.localeCompare(b.displayName)
+      }
+    })),
+  ],
+  right: [
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
+  ],
 }

@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { indexPageLayout } from "./quartz.layout"
 
 /**
  * Quartz 4.0 Configuration
@@ -77,7 +78,15 @@ const config: QuartzConfig = {
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
-      Plugin.ContentPage(),
+      Plugin.ContentPage({
+        pageLayout: (ctx) => {
+          // Use the special layout for the index page
+          if (ctx.slug === "index") {
+            return indexPageLayout
+          }
+          return undefined // use default layout for other pages
+        },
+      }),
       Plugin.FolderPage(),
       Plugin.TagPage(),
       Plugin.ContentIndex({

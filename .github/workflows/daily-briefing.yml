@@ -1,0 +1,41 @@
+name: Daily Briefing Generator
+
+on:
+  schedule:
+    # Run every day at 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  create-daily-briefing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install required packages
+        run: npm install axios dotenv
+
+      - name: Create daily briefing
+        run: node scripts/createDailyBriefing.js
+        env:
+          GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          NODE_OPTIONS: --experimental-modules
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "Daily Briefing Bot"
+          git config --global user.email "bot@github.actions"
+          git add content/daily/ content/images/daily/ content/index.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Daily briefing for $(date +'%Y-%m-%d')" && git push)

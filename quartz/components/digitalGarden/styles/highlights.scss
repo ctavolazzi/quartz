@@ -1,0 +1,49 @@
+/* Styles for Highlights Component */
+.highlights-section {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.highlights-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.highlight-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--lightgray);
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.highlight-text {
+  font-style: italic;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.highlight-source {
+  font-size: 0.9rem;
+  color: var(--gray);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .highlights-section {
+    padding: 0.75rem;
+  }
+
+  .highlights-title {
+    font-size: 1.1rem;
+  }
+}

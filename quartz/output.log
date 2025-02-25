@@ -1,0 +1,15 @@
+
+> @jackyzha0/quartz@4.4.0 quartz
+> ./quartz/bootstrap-cli.mjs build --serve
+
+
+ Quartz v4.4.0 
+
+Cleaned output directory `public` in 16ms
+Found 7 input files from `content` in 17ms
+[2K[1GParsed 7 Markdown files in 333ms
+Filtered out 0 files in 101μs
+[2K[1GEmitted 32 files to `public` in 264ms
+Done processing 7 files in 632ms
+Started a Quartz server listening at http://localhost:8080
+hint: exit with ctrl+c
